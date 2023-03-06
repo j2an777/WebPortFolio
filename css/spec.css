@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin : 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.skills {
+    display : flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+}
+
+.skills h1 {
+    position : absolute;
+    top : 80px;
+    left : 10px;
+}
+
+.card_wrap {
+    position : relative;
+    width : 1000px;
+    display : flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin : 20px;
+    padding : 20px 0;
+}
+
+.card {
+    position : relative;
+    height : 250px;
+    background: #fff;
+    display : flex;
+    width : 45%;
+    margin : 30px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.imgBx {
+    position : absolute;
+    top : 10px;
+    left : 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    height : calc(100% - 20px);
+    width : calc(100% - 20px);
+    z-index : 1;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    border : 1px solid rgba(255,255,255,0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 1);
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover .imgBx {
+    height : 150px;
+    width : 150px;
+    left : -75px;
+    top : calc(50% - 75px);
+    filter: invert(1);
+}
+
+.card .imgBx img {
+    max-width : 100px;
+    filter: invert(0);
+    transition : 0.5s ease-in-out;
+}
+
+.card:hover .imgBx img {
+    max-width : 75px;
+}
+
+.content {
+    position : absolute;
+    right : 0;
+    width : calc(100% - 75px);
+    height : 100%;
+    padding : 20px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content h3 {
+    margin-bottom: 5px;
+    font-size : 35px;
+}
+
+#next {
+    margin-right : 60px;
+}
+
+.intro {
+    min-height: 10vh;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    justify-content: center;
+}
+
+.intro h1 {
+    margin-top : 100px;
+}
+
+.project {
+    width : 100vw;
+    min-height : 100vh;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.intro_1 {
+    min-height: 10vh;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    justify-content: center;
+    background: whitesmoke;
+}
+
+.intro_1 h1 {
+    margin-top : 100px;
+}
+
+.pr_bx {
+    margin : 0 0 50px 0;
+    padding : 0;
+    display : flex;
+    width : 100%;
+    height : 80vh;
+    align-items: center;
+}
+
+.pr_content {
+    width : 50%;
+    margin-left : 10%;
+    display : flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.pr_content h1 {
+    color : brown;
+    margin-bottom : 50px;
+}
+.pr_content h3 {
+    margin-bottom : 30px;
+}
+.pr_img {
+    width : calc (100% - 50%);
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pr_img img {
+    width : 50%;
+}
+
+.intro_2 {
+    min-height: 10vh;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    justify-content: center;
+    background: antiquewhite;
+}
+
+.intro_2 h1 {
+    margin-top : 100px;
+}
+
+.reward {
+    width : 100vw;
+    min-height : 100vh;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    background: antiquewhite;
+}
+
+.rw_img {
+    width : calc (100% - 50%);
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rw_img img {
+    width : 70%;
+}
+
+.rw_content {
+    width : 50%;
+    margin-right : 5%;
+    display : flex;
+    flex-direction: column;
+    padding : 50px;
+    align-items: center;
+}
+
+.rw_content h1 {
+    text-align: center;
+    color : brown;
+    margin-bottom : 50px;
+}
+.rw_content h3 {
+    margin-bottom : 30px;
+}
+
+footer {
+    color : #fff;
+    background: #111;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .snsWrap {
+    display : flex;
+    justify-content: space-evenly;
+  }
+  
+  .snsWrap img {
+    width : 30px;
+    height : 30px;
+  }
+  
+  footer p {
+    margin-top: 20px;
+    font-size: 15px;
+    word-spacing: 5px;
+  }
+
+  
+ 
+

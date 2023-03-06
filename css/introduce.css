@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin : 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+.container1_info {
+    background-image: url(/img/paper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height : 100vh;
+    padding : 0;
+    margin : 0;
+}
+
+.info_wrap {
+    display : block;
+    align-items: center;
+    padding : 0;
+    margin : 0;
+}
+
+.up {
+    margin : 0;
+    padding : 0;
+    padding : 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.explain_wrap {
+    margin-top : 40px;
+}
+
+.down img {
+    width : 400px;
+    height : 400px;
+    position : absolute;
+    bottom : 2%;
+    left : 20%;
+}
+
+.cloud {
+    width : 200px;
+    height : 200px;
+    position : absolute;
+    top : 55%;
+    left: 40%;
+    background : transparent url(/img/cloud.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cloud p {
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 39%;
+}
+
+.container2_history {
+    height : 100vh;
+    padding : 0;
+    margin : 0;
+    display : flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.left1 {
+    background: #161623;
+    margin : 0;
+    padding :0;
+    width : 500px;
+    height : 100%;
+}
+
+.title1 {
+    padding : 0;
+    margin : 90px 0 0 30px;
+    color : #fff;
+}
+
+.right1 {
+    width : calc(100% - 500px);
+    height : 100%;
+    padding : 0;
+    margin : 0;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/starts.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content1 {
+    width : 480px;
+    height : 480px;
+    margin-top : 30px;
+    background-color : rgb(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    box-shadow : 20px 20px 50px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px #333;
+    border-top : 1px solid rgba(255, 255, 255, 0.5);
+    border-left : 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.content1:hover {
+    box-shadow: 0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #fff,
+                0 0 80px #fff,
+                0 0 120px #fff,
+                0 0 160px #fff;
+}
+
+
+.container3_personality {
+    height : 100vh;
+    padding : 0;
+    margin : 0;
+    display : flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.left2 {
+    background: pink;
+    margin : 0;
+    padding :0;
+    width : 500px;
+    height : 100%;
+}
+
+.title2 {
+    padding : 0;
+    margin : 90px 0 0 30px;
+    color : #fff;
+}
+
+.title2 h2 {
+    margin-top : 150px;
+    font-size : 4em;
+}
+
+.title2 h4 {
+    font-size : 5em;
+}
+
+.content2 {
+    margin : 80px 0 0 200px;
+}
+
+.content2 p {
+    margin-bottom : 50px;
+}
+
+
+  
+ 
+
