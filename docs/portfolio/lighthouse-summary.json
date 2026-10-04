@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-04",
+  "url": "http://localhost:3100/",
+  "lighthouseVersion": "13.5.0",
+  "mode": "mobile simulated throttling, localhost production server",
+  "categories": {
+    "performance": 0.98,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 0.66
+  },
+  "metrics": {
+    "first-contentful-paint": {
+      "value": 760.6393,
+      "display": "0.8 s"
+    },
+    "largest-contentful-paint": {
+      "value": 2476.6393,
+      "display": "2.5 s"
+    },
+    "cumulative-layout-shift": {
+      "value": 0,
+      "display": "0"
+    },
+    "total-blocking-time": {
+      "value": 8,
+      "display": "10 ms"
+    },
+    "speed-index": {
+      "value": 917.8133219236795,
+      "display": "0.9 s"
+    }
+  },
+  "note": "SEO score includes intentional noindex review mode; real-user CWV and production indexing are not measured."
+}
