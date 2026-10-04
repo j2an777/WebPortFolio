@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getSiteConfig } from "@/lib/seo";
 export default function robots(): MetadataRoute.Robots {
-  const { origin, indexable } = getSiteConfig();
+  const { siteUrl: origin, indexable } = getSiteConfig();
   return {
     rules: {
       userAgent: "*",
@@ -10,3 +10,5 @@ export default function robots(): MetadataRoute.Robots {
     ...(indexable ? { sitemap: `${origin}/sitemap.xml` } : {}),
   };
 }
+
+export const dynamic = "force-static";

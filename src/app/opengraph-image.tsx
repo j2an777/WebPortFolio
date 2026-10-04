@@ -53,3 +53,5 @@ export default function Image() {
     size,
   );
 }
+
+export const dynamic = "force-static";

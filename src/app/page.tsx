@@ -17,7 +17,7 @@ export const metadata = pageMetadata(
   "/",
 );
 export default function Home() {
-  const { origin } = getSiteConfig();
+  const { siteUrl: origin } = getSiteConfig();
   return (
     <>
       <JsonLd

@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src tests next.config.ts",
     "test": "node --import tsx --test tests/*.test.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "build:pages": "node scripts/prepare-static-images.mjs && STATIC_EXPORT=true next build && node scripts/prepare-static-social.mjs"
   },
   "dependencies": {
     "gsap": "3.15.0",
