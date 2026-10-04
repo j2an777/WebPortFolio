@@ -1,4 +1,5 @@
 "use client";
+import { normalizePathname } from "@/lib/paths";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,7 +26,7 @@ export function Header() {
                 <Link
                   href={href}
                   data-transition
-                  aria-current={pathname === href ? "page" : undefined}
+                  aria-current={normalizePathname(pathname) === href ? "page" : undefined}
                 >
                   {label}
                 </Link>

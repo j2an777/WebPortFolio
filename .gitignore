@@ -10,3 +10,5 @@ test-results/
 *.tsbuildinfo
 .superpowers/
 docs/portfolio/assets/
+
+/public/images/responsive/

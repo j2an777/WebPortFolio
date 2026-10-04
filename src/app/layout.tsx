@@ -15,7 +15,7 @@ const dmSans = localFont({
 });
 const site = getSiteConfig();
 export const metadata: Metadata = {
-  metadataBase: new URL(site.origin),
+  metadataBase: new URL(`${site.siteUrl}/`),
   title: {
     default: "하승진 · 프론트엔드 개발자 | J2AN",
     template: "%s | J2AN · 하승진",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "서비스 품질과 협업 문화를 함께 만드는 프론트엔드 개발자 하승진의 포트폴리오. Purple Academy, HanwhaVision STEP, Co-Play, Dart의 경험과 설계 판단을 확인하세요.",
   robots: { index: site.indexable, follow: site.indexable },
-  icons: { icon: "/icon.svg" },
+  icons: { icon: `${site.siteUrl}/icon.svg` },
 };
 export const viewport: Viewport = {
   themeColor: "#f4f2ed",

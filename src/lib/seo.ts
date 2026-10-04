@@ -1,3 +1,4 @@
+import { getBasePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import { profile } from "@/content/portfolio";
 
@@ -20,6 +21,8 @@ export function getSiteConfig(
   const local = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
   return {
     origin: url.origin,
+    basePath: getBasePath(env.NEXT_PUBLIC_BASE_PATH || ""),
+    siteUrl: url.origin + getBasePath(env.NEXT_PUBLIC_BASE_PATH || ""),
     configured: Boolean(env.SITE_URL),
     indexable:
       Boolean(env.SITE_URL) &&
@@ -45,7 +48,8 @@ export function pageMetadata(
   image = "/opengraph-image",
 ): Metadata {
   const site = getSiteConfig();
-  const canonical = `${site.origin}${path}`;
+  const canonical = `${site.siteUrl}${path}`;
+  const socialImage = `${site.siteUrl}${image}${process.env.STATIC_EXPORT === "true" ? ".png" : ""}`;
   return {
     title,
     description,
@@ -58,19 +62,19 @@ export function pageMetadata(
       siteName: "J2AN · 하승진",
       locale: "ko_KR",
       type: "website",
-      images: [{ url: image, width: 1200, height: 630 }],
+      images: [{ url: socialImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | J2AN · 하승진`,
       description,
-      images: [image],
+      images: [socialImage],
     },
   };
 }
 
 export function personSchema() {
-  const { origin } = getSiteConfig();
+  const { siteUrl: origin } = getSiteConfig();
   return {
     "@type": "Person",
     "@id": `${origin}/#person`,

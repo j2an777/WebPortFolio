@@ -49,3 +49,7 @@ SITE_INDEXABLE=true
 회사 PR 링크는 접근 권한이 필요합니다. 내부 화면 대신 사용하는 SVG는 구조 설명 이미지로 표시합니다. 원본 입사 PDF와 인증 캡처는 공개 자산에 포함하지 않았습니다. 이전 사이트는 `legacy/`에 보존했습니다.
 
 [설계](docs/portfolio/design.md) · [콘텐츠 조사](docs/portfolio/research.md) · [디자인 시스템](docs/portfolio/design-system.md) · [검증 결과](docs/portfolio/verification.md)
+
+## GitHub Pages
+
+`main` 머지 후 GitHub Actions로 정적 배포합니다. 최초 Pages 설정, 원하는 도메인 연결, 로컬 빌드 방법은 [배포 안내](docs/portfolio/github-pages.md)를 참고하세요.

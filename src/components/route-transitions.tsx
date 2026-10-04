@@ -1,4 +1,5 @@
 "use client";
+import { stripBasePath } from "@/lib/paths";
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -56,7 +57,7 @@ export function RouteTransitions({ children }: { children: ReactNode }) {
       if (active.current) return;
       active.current = true;
       const ticket = ++generation.current;
-      const destination = `${url.pathname}${url.search}${url.hash}`;
+      const destination = `${stripBasePath(url.pathname)}${url.search}${url.hash}`;
       try {
         const { gsap } = await import("gsap");
         if (ticket !== generation.current || !curtain.current) return;

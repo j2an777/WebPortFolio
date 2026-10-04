@@ -53,3 +53,14 @@
 ## 전달 조건
 
 현재 브랜치 `feature/portfolio-renewal`. 사용자 요청에 따라 저장소 소유자 `j2an777`를 인증하고 ADMIN 권한을 확인해 원격 push를 완료했다. 로컬과 원격의 구현 커밋 `f7e0742` 일치를 확인했다. `main` 병합과 운영 배포는 아직 실행하지 않았다. 배포 시 Next 서버를 지원하는 호스팅을 사용한다. 원본 PDF·조사 이미지 원본·내부 인증 캡처는 공개 자산에서 제외했다.
+
+## GitHub Pages 정적 배포 검증 (2026-10-04)
+
+- 저장소 경로 `/WebPortFolio`를 지정한 `pnpm build:pages` 성공: 11개 사례와 OG 이미지 정적 생성.
+- 단위 테스트 7개 통과, ESLint와 TypeScript 검사 통과.
+- 생성된 `out/`을 경로 아래에 마운트한 정적 서버에서 320·390·768·1440px 검증: 이미지 로딩, 가로 넘침 없음, 메뉴 활성 상태, GSAP 경로 전환, 상세 페이지 새로고침 정상.
+- JavaScript 비활성화 상태에서도 상세 본문 표시.
+- 루트/사례 OG PNG, robots, sitemap, llms.txt HTTP 200. OG PNG의 `image/png` MIME 확인. 브라우저 오류 없음.
+- 실제 GitHub Actions 실행과 공개 URL 검증은 아직 수행하지 않았습니다.
+
+- 일반 Next 서버 모드 `pnpm build`도 성공. 최종 독립 리뷰에서 중요 이상 없음; 정적 로컬 링크·자산 참조 633개 확인.

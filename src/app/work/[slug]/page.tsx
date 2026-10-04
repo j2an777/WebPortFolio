@@ -35,7 +35,7 @@ export default async function ProjectPage({
 }) {
   const project = getProject((await params).slug);
   if (!project) notFound();
-  const { origin } = getSiteConfig();
+  const { siteUrl: origin } = getSiteConfig();
   const next = projects[(projects.indexOf(project) + 1) % projects.length];
   return (
     <>
