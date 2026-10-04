@@ -6,7 +6,7 @@
 
 하승진의 개인 포트폴리오를 기존 HTML·jQuery 프로젝트에서 Next.js App Router + TypeScript + Tailwind CSS + GSAP 기반으로 리뉴얼한다. 채용 담당자와 동료 개발자가 소개, 실무 기여, 문제 해결 과정, 프로젝트 화면, 연락 방법을 빠르게 찾을 수 있어야 한다.
 
-사용자가 위임한 범위는 콘텐츠 분석, UI 콘셉트 선택, 필요한 의존성 추가, SEO·AEO, 디자인 시스템, 재사용 유틸·훅, LCP 최적화, 서버 렌더링, 애니메이션과 디자인 패턴 구현이다. 추가 요청인 프로필 사진과 프로젝트별 썸네일을 필수 요구사항으로 포함한다. 현재 인증의 개인 저장소 권한은 READ여서 로컬 구현·커밋으로 전달한다.
+사용자가 위임한 범위는 콘텐츠 분석, UI 콘셉트 선택, 필요한 의존성 추가, SEO·AEO, 디자인 시스템, 재사용 유틸·훅, LCP 최적화, 서버 렌더링, 애니메이션과 디자인 패턴 구현이다. 추가 요청인 프로필 사진과 프로젝트별 썸네일을 필수 요구사항으로 포함한다. 구현 이후 저장소 소유자 `j2an777`로 인증하고 리뉴얼 브랜치를 원격에 push했다. 운영 배포는 별도 단계다.
 
 ## 콘셉트
 
@@ -132,7 +132,7 @@ Next Image로 width·height 또는 고정 aspect ratio, 정확한 `sizes`를 지
 - 프로덕션 서버에서 모바일 Lighthouse와 요청 크기 확인.
 - 실행 명령, 환경 변수, 콘텐츠 수정법, 디자인 토큰, 검증 결과를 README·문서에 남긴다.
 
-현재 작업은 별도 개인 저장소 `/Users/j2an/Desktop/WebPortFolio`, 브랜치 `feature/portfolio-renewal`에 있다. 회사 `purple` 저장소에는 변경하지 않는다. 현재 GitHub 인증은 `purple-fe-seungjin`이며 개인 저장소 권한은 READ다. 구현·로컬 검증은 가능하지만 개인 원격에 push하려면 해당 권한이 있는 인증이 필요하다.
+현재 작업은 별도 개인 저장소 `/Users/j2an/Desktop/WebPortFolio`, 브랜치 `feature/portfolio-renewal`에 있다. 회사 `purple` 저장소에는 변경하지 않는다. 개인 저장소 작업은 `j2an777` 인증으로 수행한다. `feature/portfolio-renewal`은 원격 push를 완료했고 `main` 병합 및 운영 배포는 아직 실행하지 않았다.
 
 ## PDF 검토 후 추가된 채용 관점의 편집 원칙
 

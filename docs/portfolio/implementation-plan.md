@@ -13,7 +13,7 @@
 - 회사 원천 코드·개인정보·인증 화면과 원본 PDF는 공개 자산에 포함하지 않는다.
 - 확인된 참여 기간과 기여 범위를 유지하고 측정되지 않은 성과를 만들지 않는다.
 - 서버 HTML에서 본문과 링크가 읽혀야 하며 reduced motion과 320px 화면을 지원한다.
-- 개인 저장소만 수정. 원격 쓰기는 현재 READ 인증이 해소돼야 가능하다.
+- 개인 저장소만 수정. 원격 쓰기는 저장소 소유자 `j2an777` 인증으로 수행한다.
 
 ## Review Focus
 
@@ -60,7 +60,7 @@ Files: `README.md`, `docs/portfolio/verification.md`, `docs/portfolio/design-sys
 - [x] 타입 검사·린트·테스트·프로덕션 빌드.
 - [x] 프로덕션 서버에서 Playwright·axe 및 모바일 Lighthouse.
 - [x] 결과와 한계, 실행·배포·콘텐츠 수정 방법 기록.
-- [x] 최종 변경 검토 및 개인 저장소 로컬 커밋. 인증 권한 없으면 push는 미실행으로 보고.
+- [x] 최종 변경 검토 및 개인 저장소 커밋. `j2an777` 인증으로 리뉴얼 브랜치 push 완료.
 
 ## 완료 기록 · 2026-10-04
 
@@ -72,4 +72,4 @@ Files: `README.md`, `docs/portfolio/verification.md`, `docs/portfolio/design-sys
 - Ruling: 정적인 내용은 서버 사전 렌더링(SSG)으로 제공한다. 요청마다 불필요한 SSR을 강제하지 않는다.
 - Ruling: SITE_URL이 확정되지 않아 noindex를 유지한다. 운영 환경의 origin/index 설정 후 재빌드가 필요하다.
 - Ruling: 기존 PDF의 private 내용은 게시하지 않고 사례 설명과 안전한 소개 이미지만 반영한다.
-- Ruling: 원격 계정의 개인 저장소 권한 READ로 push·배포는 실행할 수 없다. 로컬 브랜치·커밋과 실행 가능한 결과로 전달한다.
+- Ruling: 구현 시점에는 회사 계정의 개인 저장소 권한이 READ였으나 이후 사용자 요청으로 소유자 `j2an777`를 인증해 브랜치 push를 완료했다. `main` 병합과 운영 배포는 별도 단계다.
