@@ -6,6 +6,7 @@ export const profile = {
   email: "ha99104@gmail.com",
   github: "https://github.com/j2an777",
   blog: "https://velog.io/@j2an/posts",
+  instagram: "https://www.instagram.com/hs_j2an/",
   notion: "https://j2an.notion.site/J2AN-364a1d26afe648cd899b1415024fd78d",
   intro:
     "서비스 품질과 협업 문화를 함께 만드는 프론트엔드 개발자 하승진입니다.",
@@ -15,6 +16,7 @@ export const profile = {
 
 export const navigation = [
   { label: "About Me", href: "/" },
+  { label: "Resume", href: "/resume" },
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
   { label: "Expertise", href: "/expertise" },

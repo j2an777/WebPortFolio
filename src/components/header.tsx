@@ -4,6 +4,8 @@ import { normalizePathname } from "@/lib/paths";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/content/portfolio";
+import { resumePdf } from "@/content/resume";
+import { withBasePath } from "@/lib/paths";
 import { Arrow } from "./ui";
 
 export function Header() {
@@ -36,10 +38,11 @@ export function Header() {
         </nav>
         <a
           className="header-contact"
-          href="mailto:ha99104@gmail.com"
-          aria-label="Let’s talk · 하승진에게 이메일 보내기"
+          href={withBasePath(resumePdf)}
+          download="하승진_프론트엔드_이력서.pdf"
+          aria-label="하승진 이력서 PDF 다운로드"
         >
-          <span>Let’s talk</span>
+          <span>이력서 PDF ↓</span>
           <Arrow />
         </a>
       </div>

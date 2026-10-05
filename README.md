@@ -1,6 +1,6 @@
 # J2AN · 하승진 포트폴리오
 
-About Me 중심의 개인 포트폴리오. Next.js App Router, TypeScript, Tailwind CSS, GSAP으로 구현했습니다. 실제 프로필 사진과 11개 프로젝트 사례를 포함합니다.
+About Me 중심의 개인 포트폴리오. Next.js App Router, TypeScript, Tailwind CSS, GSAP으로 구현했습니다. 실제 프로필 사진과 11개 프로젝트 사례를 포함합니다. 메인 About Me(`/`)와 별도 이력서(`/resume`)를 제공하며, 상단에서 동일 테마의 PDF를 다운로드할 수 있습니다.
 
 ## 실행
 
@@ -10,6 +10,8 @@ pnpm dev
 ```
 
 개발 주소: http://localhost:3100
+
+`dev`, `build`, `build:pages`는 공통 이력서 데이터로 3페이지 PDF를 먼저 생성합니다. 생성 파일은 `public/resume/seungjin-ha-resume.pdf`와 `output/pdf/seungjin-ha-resume.pdf`이며 Git에는 포함하지 않습니다. Linux에서는 첫 실행 전에 `pnpm exec playwright install --with-deps chromium`으로 브라우저 시스템 의존성을 설치하세요. Pages CI에는 이 단계가 포함되어 있습니다.
 
 ```sh
 pnpm typecheck
@@ -40,6 +42,8 @@ SITE_INDEXABLE=true
 ## 내용 수정
 
 - 프로필·내비게이션·사례·경력: `src/content/portfolio.ts`
+- 웹/PDF 공통 이력서: `src/content/resume.ts`
+- PDF 템플릿·생성: `src/components/resume-print.tsx`, `scripts/generate-resume-pdf.tsx`
 - 화면과 공통 UI: `src/app`, `src/components`
 - 색·레이아웃·반응형: `src/app/globals.css`
 - 스크롤 모션: `src/hooks/use-scroll-motion.ts`

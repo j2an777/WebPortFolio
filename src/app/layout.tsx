@@ -6,6 +6,7 @@ import { MotionEnhancer } from "@/components/motion-enhancer";
 import { RouteTransitions } from "@/components/route-transitions";
 import { getSiteConfig } from "@/lib/seo";
 import "./globals.css";
+import "./resume.css";
 
 const dmSans = localFont({
   src: "../../public/fonts/dm-sans-latin-variable.woff2",

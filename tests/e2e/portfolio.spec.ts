@@ -12,7 +12,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     await expect(
       page.getByRole("img", { name: "하승진 프로필 사진" }),
     ).toBeVisible();
-    await expect(page.locator("nav a")).toHaveCount(5);
+    await expect(page.locator("nav a")).toHaveCount(6);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,

@@ -724,6 +724,7 @@ ul {
 }
 .social-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 28px;
 }
 .site-footer {
@@ -1110,6 +1111,8 @@ ul {
   }
   .site-header nav {
     width: 100%;
+    min-width: 0;
+    flex-basis: 100%;
     order: 2;
     overflow-x: auto;
     scrollbar-width: none;
