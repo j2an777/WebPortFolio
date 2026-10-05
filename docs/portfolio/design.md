@@ -24,7 +24,7 @@ FE Korea에서 연결된 Jieun Kim, 민경배, Mopsy의 공개 포트폴리오�
 
 ## 첫 화면
 
-- 상단: `J2AN.` 워드마크, About Me / Projects / Experience / Expertise / Contact 라우트.
+- 상단: `J2AN.` 워드마크(메인 About Me 화면으로 이동), Projects / Experience / Expertise / Contact 라우트.
 - 왼쪽: `Hello, I’m / Seungjin.` 헤드라인과 “서비스 품질과 협업 문화를 함께 만드는 프론트엔드 개발자 하승진입니다.” 소개.
 - 오른쪽: Notion에서 확보한 실제 프로필 사진. 인물 중심의 4:5 컨테이너로 표현하고 이미지 원본은 보존한다.
 - 소개 아래: 대표 프로젝트 보기, 이메일 연락하기 링크.

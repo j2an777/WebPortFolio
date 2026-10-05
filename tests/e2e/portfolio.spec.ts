@@ -12,7 +12,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     await expect(
       page.getByRole("img", { name: "하승진 프로필 사진" }),
     ).toBeVisible();
-    await expect(page.locator("nav a")).toHaveCount(5);
+    await expect(page.locator("nav a")).toHaveCount(4);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,
@@ -60,7 +60,7 @@ test("routing transitions recover on history and repeated navigation", async ({
   await page.goBack();
   await expect(page).toHaveURL("/experience");
   await expect(page.locator(".route-curtain")).toBeHidden();
-  await page.locator("nav").getByRole("link", { name: "About Me" }).click();
+  await page.getByRole("link", { name: "J2AN 홈", exact: true }).click();
   await expect(page).toHaveURL("/");
   await expect(page.locator(".route-curtain")).toBeHidden();
   await page.getByRole("link", { name: "Explore my work" }).click();

@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { siteUrl: origin, indexable } = getSiteConfig();
   if (!indexable) return [];
   return [
+    "/",
     ...navigation.map((item) => item.href),
     ...projects.map((item) => `/work/${item.slug}`),
   ].map((path) => ({ url: `${origin}${path}` }));
