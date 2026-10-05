@@ -286,7 +286,10 @@ export function ContactSection({ full = false }: { full?: boolean }) {
               GitHub
             </TextLink>
             <TextLink href={profile.blog} external>
-              Blog
+              Velog
+            </TextLink>
+            <TextLink href={profile.instagram} external>
+              Instagram
             </TextLink>
             <TextLink href={profile.notion} external>
               Notion

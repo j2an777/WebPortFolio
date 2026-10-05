@@ -12,3 +12,6 @@ test-results/
 docs/portfolio/assets/
 
 /public/images/responsive/
+
+/output/
+/public/resume/*.pdf

@@ -73,3 +73,15 @@
 - JavaScript 비활성화에서도 보강된 상세 본문 전체 표시. 브라우저 pageerror 없음.
 - 첫 브라우저 탐색 시도는 페이지 전환 애니메이션 완료 전 다음 링크를 눌러 시간 초과했다. 애니메이션 종료를 기다리도록 검증 절차를 수정한 후 통과했다. 제품 코드는 변경하지 않았다.
 - 이번 변경은 About Me 메뉴 제거 PR #3을 포함하지 않는다. 실제 공개 사이트 반영은 새 콘텐츠 PR 머지와 배포 성공 후다.
+
+## 2026-10-05 별도 이력서 및 PDF
+
+- 기존 About Me `/` 유지, `/resume`과 메뉴 추가. 연락처에 사용자 확인 GitHub·Instagram·Velog 링크 반영.
+- 원본 이력서 PDF 5페이지 텍스트·이미지 전부 확인. 사람인·원티드는 Chrome 런타임 오류로 미대조이며 `resume-sources.md`에 한계 기록. 현재 회사 활동 기간을 입사일로 단정하지 않음.
+- ESLint·TypeScript 검사, 단위 테스트 9개, 브라우저 E2E 19개 통과. E2E는 설치된 Playwright Chromium을 사용하는 임시 설정으로 실행. 접근성 자동 검사, 320~1440px, JavaScript off, PDF 다운로드·메뉴 경로 전환 포함.
+- 새 소셜 링크가 좁은 화면에서 넘친 회귀를 발견해 줄바꿈으로 수정. 모바일 메뉴 너비 제한도 추가 후 전체 E2E 재실행 통과.
+- 일반 `pnpm build`와 `SITE_URL=https://j2an777.github.io NEXT_PUBLIC_BASE_PATH=/WebPortFolio SITE_INDEXABLE=true pnpm build:pages` 성공.
+- 최종 `out/`을 `/WebPortFolio/`에 마운트해 320·390·768·1440px 본문·홈 이동·실제 PDF 응답 확인. 브라우저 pageerror 없음, JavaScript off에서도 학력 표시. 390px·1440px 전체 스크린샷 시각 확인.
+- PDF A4 3페이지, 약 555KB, 한글 텍스트 추출·18개 링크 확인. 전 페이지 렌더를 확인했으며 내용 잘림과 겹침 없음.
+- 웹/PDF 데이터 공유, 모든 개발·빌드 명령에서 PDF 생성. Linux CI 브라우저 시스템 의존성 설치 추가. 독립 리뷰에서 마지막 404 지적 해소 후 추가 blocker 없음.
+- 이 기록은 로컬 검증이며 새 PR의 GitHub Actions·공개 배포 성공을 뜻하지 않음.
