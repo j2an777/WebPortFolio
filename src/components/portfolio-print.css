@@ -1,4 +1,4 @@
-@page { size: A4; }
+@page { size: A4; background: #f4f2ed; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #f4f2ed; color: #191919; font-family: ResumeKR, ResumeLatin, sans-serif; font-size: 13px; line-height: 1.8; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 h1,h2,h3,p,ul,dl,dd { margin: 0; }
