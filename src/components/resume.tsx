@@ -64,8 +64,8 @@ export function ResumeHome() {
           <Image
             src={resume.portrait}
             alt="하승진 프로필 사진"
-            width={100}
-            height={140}
+            width={640}
+            height={853}
             sizes="(max-width: 700px) 160px, 300px"
             preload
           />
