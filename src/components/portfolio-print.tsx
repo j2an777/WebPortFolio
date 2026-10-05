@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element -- This document is rendered directly by the PDF browser. */
-import { expertise, profile, projects } from "../content/portfolio";
+import { expertise, profile, projects, getProjectGroups } from "../content/portfolio";
 import { resume } from "../content/resume";
 
 export function PortfolioPrint({ siteUrl, assetRoot }: { siteUrl: string; assetRoot: string }) {
+  const groups = getProjectGroups();
+  const ordered = groups.flatMap((group) => group.projects);
   const image = (src: string) => `${assetRoot}${src.replace(/\.(webp|svg)$/, ".jpg")}`;
   return (
     <>
@@ -36,18 +38,28 @@ export function PortfolioPrint({ siteUrl, assetRoot }: { siteUrl: string; assetR
       <section className="portfolio-index">
         <p className="eyebrow">CONTENTS / {projects.length} CASE STUDIES</p>
         <h2 className="chapter-title">Selected Work<span>.</span></h2>
-        <p className="intro">프로젝트 이름을 누르면 웹에서 상세 내용과 관련 링크를 확인할 수 있습니다.</p>
-        {projects.map((project, index) => (
-          <a className="index-row" href={`${siteUrl}/work/${project.slug}/`} key={project.slug}>
-            <span className="index-number">{String(index + 1).padStart(2, "0")}</span>
-            <div><h3>{project.name} ↗</h3><p>{project.summary}</p></div>
-            <span className="index-year">{project.year}</span>
-          </a>
+        <p className="intro">회사별 업무와 개인·팀 프로젝트를 구분했습니다. 각 이름을 누르면 웹에서 상세 내용과 관련 링크를 확인할 수 있습니다.</p>
+        {groups.map((group) => (
+          <section className="index-group" key={group.id}>
+            <header className="index-group-heading">
+              <p className="eyebrow">{group.label}</p>
+              <h3>{group.name} / {group.projects.length} 사례</h3>
+              <p>{group.description}</p>
+            </header>
+            {group.projects.map((project) => (
+              <a className="index-row" href={`${siteUrl}/work/${project.slug}/`} key={project.slug}>
+                <span className="index-number">{String(ordered.indexOf(project) + 1).padStart(2, "0")}</span>
+                <div><h4>{project.name} ↗</h4><p>{project.summary}</p></div>
+                <span className="index-year">{project.year}</span>
+              </a>
+            ))}
+          </section>
         ))}
       </section>
-      {projects.map((project, index) => (
+      {ordered.map((project, index) => (
         <article className="portfolio-case" key={project.slug}>
           <header className="case-header">
+            <p className="case-affiliation">{groups.find((group) => group.id === project.group)?.name} / {project.group === "purple" ? "교육 플랫폼 내 세부 사례" : project.group === "investi" ? (project.slug === "hanwha-vision" ? "클라이언트 프로젝트" : "플랫폼 개발") : (project.slug === "dart" ? "팀 프로젝트" : "개인 프로젝트")}</p>
             <p className="eyebrow">CASE {String(index + 1).padStart(2, "0")} / {project.category}</p>
             <h2 className="chapter-title">{project.name}<span>.</span></h2>
             <p className="case-headline">{project.headline}</p>

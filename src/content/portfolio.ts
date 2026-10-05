@@ -38,6 +38,7 @@ export interface Project {
   slug: string;
   name: string;
   category: string;
+  group: "purple" | "investi" | "independent";
   year: string;
   period: string;
   summary: string;
@@ -63,6 +64,7 @@ const pr = (number: number, label: string): Evidence => ({
 export const projects: Project[] = [
   {
     "slug": "purple-academy",
+    group: "purple",
     "name": "Purple Academy",
     "category": "EDUCATION · PRODUCT ENGINEERING",
     "year": "2026",
@@ -169,13 +171,14 @@ export const projects: Project[] = [
   },
   {
     slug: "hanwha-vision",
+    group: "investi",
     name: "HanwhaVision STEP",
     category: "GLOBAL SERVICE · CLIENT PROJECT",
     year: "2025",
-    period: "2025.03.03 — 2025.09.30",
+    period: "2025.03 — 2025.09",
     summary: "글로벌 파트너 서비스의 인증·다국어·문서 경험을 안정적으로.",
     headline: "운영 중 발생하는 문제를 끝까지 추적합니다.",
-    role: "프론트엔드 개발 · 1페이즈 후반 참여",
+    role: "인베스티 소속 · 클라이언트/일부 관리자 화면 개발 · 1페이즈 후반 참여",
     team: "8명 · FE 2 / BE 2 / 디자인 3 / PM 1",
     image: "/images/hanwha-step.webp",
     imageAlt: "한화비전 STEP 글로벌 파트너 서비스 소개 화면",
@@ -191,7 +194,7 @@ export const projects: Project[] = [
     highlights: [
       "동시 요청과 토큰 재발급 이슈 안정화",
       "다국어 언어팩 설계 보조",
-      "정형 PDF·공통 입력 컴포넌트 구현",
+      "OTP 로그인·정형 PDF·공통 입력 컴포넌트 구현",
     ],
     sections: [
       {
@@ -227,18 +230,27 @@ export const projects: Project[] = [
           "케이스별 검증 후 운영에 적용한 경험입니다. 처리 시간 감소나 장애 감소율은 별도 측정 자료가 없어 수치로 표현하지 않습니다.",
         ],
       },
+      {
+        "label": "05 / GLOBAL OPERATIONS",
+        "title": "다국어와 OTP를 실제 운영 흐름에 연결",
+        "paragraphs": [
+          "Google Authenticator 기반 OTP 로그인 기능과 일부 관리자 화면을 개발했습니다. 인증은 로그인 화면 하나로 끝나지 않아, 토큰 만료·활성/비활성 탭·페이지 이동·API 호출 상황을 구분해 테스트 케이스를 정리했습니다.",
+          "next-intl 언어팩 설계에는 보조 역할로 참여했습니다. Google Spreadsheet에서 관리하는 번역을 명령 실행으로 언어별 JSON에 반영하고 locale 경로와 연결하는 흐름을 다뤄, 번역 수정과 화면 개발이 같은 기준으로 진행되도록 도왔습니다."
+        ]
+      },
     ],
-    evidence: [{ label: "2025 입사 포트폴리오 · 3–12페이지" }],
+    evidence: [{ label: "2025 입사 포트폴리오 · 3–12페이지" }, { label: "2025 이력서 · 2페이지: OTP·다국어·관리자 화면·인증 검증" }],
   },
   {
     slug: "co-play",
+    group: "investi",
     name: "Co-Play Platform",
     category: "PLATFORM · FRONTEND ARCHITECTURE",
     year: "2024–25",
-    period: "2024.09.22 — 2025.02.27",
+    period: "2024.09 — 2025.02",
     summary: "FE 1명으로 시작한 제품에, 팀이 이어갈 수 있는 기반을.",
     headline: "혼자 만드는 것과, 함께 이어가는 것은 다릅니다.",
-    role: "프론트엔드 아키텍처·기능 개발 주도 · 채팅 개발 보조",
+    role: "인베스티 소속 · 프론트엔드 아키텍처·기능 개발 주도 · 채팅 개발 보조",
     team: "4명 · 디자인 / FE / BE / PL 각 1명",
     image: "/images/co-play.svg",
     imageAlt: "UI·API·타입 패키지를 여러 앱에서 재사용하는 모노레포 구조 설명",
@@ -290,15 +302,32 @@ export const projects: Project[] = [
           "느린 아이템 이미지에는 BlurHash를 검토·적용해 실제 이미지가 준비되기 전의 시각적 공백을 줄였습니다. 이 사례는 로딩 UX 개선이며 LCP나 FPS의 측정 성과는 아닙니다.",
         ],
       },
+      {
+        "label": "05 / SERVER RENDERING",
+        "title": "초기 데이터와 클라이언트 캐시의 시작점을 맞추기",
+        "paragraphs": [
+          "초기 데이터가 필요한 화면에서 useQuery의 로딩 상태만 표시하던 흐름에 서버 prefetchQuery와 HydrationBoundary를 적용했습니다. 서버가 조회한 데이터를 클라이언트 캐시로 넘겨 첫 화면과 이후 요청이 같은 데이터를 기준으로 시작하도록 구성했습니다.",
+          "역방향 채팅에서는 0번 아이템을 로딩 Skeleton으로 두고 실제 메시지를 뒤에 매핑했습니다. 이전 메시지 추가 시 scrollToIndex로 읽던 위치를 유지하는 방향으로 구현을 보조했습니다. 초기 렌더링과 누적 데이터 처리를 서로 다른 문제로 나누어 다뤘습니다."
+        ]
+      },
+      {
+        "label": "06 / PRODUCT OWNERSHIP",
+        "title": "디자인 리소스가 부족할 때도 화면의 결정을 이어가기",
+        "paragraphs": [
+          "SNS 성격의 화면을 개발하는 과정에서 디자인 지원이 부족한 구간은 참고 서비스 조사와 Figma 와이어프레임으로 보완했습니다. 이해관계자에게 흐름을 공유하고 피드백을 반영한 뒤 UI 구현까지 이어갔습니다.",
+          "API 오류는 code·status·message 형태로 정리하고 Axios와 인증 오류를 사용자 안내로 연결했습니다. 구조 설계, 화면 기획, 실패 상태 처리까지 FE 한 명이 맡은 책임을 문서와 재사용 컴포넌트로 남겼습니다."
+        ]
+      },
     ],
-    evidence: [{ label: "2025 입사 포트폴리오 · 13–22페이지" }],
+    evidence: [{ label: "2025 입사 포트폴리오 · 13–22페이지" }, { label: "2025 이력서 · 3페이지: 서버 prefetch·HydrationBoundary·역방향 가상화" }],
   },
   {
     slug: "dart",
+    group: "independent",
     name: "D’art Gallery",
     category: "ART · TEAM PROJECT",
     year: "2024",
-    period: "2024.05 시작 · 문서 기준",
+    period: "2024.05 — 2024.08",
     summary: "작품을 전시하는 즐거움과, 업로드를 기다리는 경험까지.",
     headline: "사용자가 기다리는 동안에도, 상태는 명확해야 합니다.",
     role: "전시 템플릿·생성 UX·반응형 화면·회원 기능",
@@ -310,7 +339,7 @@ export const projects: Project[] = [
     highlights: [
       "문서 기록 기준 업로드 10초 → 6초",
       "압축·업로드·서버 처리의 진행 상태 표시",
-      "동시 401 요청의 토큰 재발급 큐",
+      "3D 전시 템플릿·PR 기반 팀 협업",
     ],
     sections: [
       {
@@ -347,17 +376,38 @@ export const projects: Project[] = [
           "실패·진행·완료 상태를 모두 제품의 일부로 설계하기",
         ],
       },
+      {
+        "label": "05 / IMMERSIVE GALLERY",
+        "title": "작품 데이터 하나를 여러 전시 경험으로",
+        "paragraphs": [
+          "회전·그리드·슬라이드·스크롤 방식의 전시 템플릿을 구현하고, react-three-fiber 기반 3D 갤러리를 추가했습니다. 예제를 TypeScript와 실제 작품 데이터 구조에 맞게 수정하고, 작품 선택에 따른 카메라 이동과 상세 모달 연결을 다뤘습니다.",
+          "3D 효과만 만드는 데서 끝내지 않고 전시 설명 모달에 라우트를 적용해 공유·직접 접근 흐름을 연결했습니다. 소개·연락 화면과 생성 진행 모달도 작은 화면에 맞게 조정했습니다."
+        ]
+      },
+      {
+        "label": "06 / ITERATION",
+        "title": "PR에 남긴 실험을 다음 사용자 경험으로 연결",
+        "paragraphs": [
+          "팀 저장소에는 본인이 작성해 병합된 PR 37건이 남아 있습니다. 이미지 최적화 검토에서 압축 구현으로, SSE 연동에서 클릭 직후 진행 모달 표시로 이어지는 변경 기록을 대조했습니다. PR 수는 기여 이력이며 성능이나 생산성 지표로 사용하지 않습니다.",
+          "SSE 초기 연동 PR에는 로컬 포워딩과 배포 서버에서 진행 이벤트가 다르게 도착한 문제가 기록되어 있습니다. 전송 구간은 Axios onUploadProgress로 분리해 표시하도록 후속 수정했습니다. 모든 환경에서 서버 진행률이 균등하게 갱신된다는 주장 대신, 구현한 단계와 당시 검증 한계를 구분합니다."
+        ]
+      },
     ],
     evidence: [
       {
         label: "Dart 프론트엔드 저장소",
-        url: "https://github.com/j2an777/Dart_FE",
+        url: "https://github.com/Goorm-Lucky7/Dart_FE",
       },
       { label: "당시 프로젝트 기록" },
+      {"label": "이미지 압축 구현 · 본인 PR #96", "url": "https://github.com/Goorm-Lucky7/Dart_FE/pull/96"},
+      {"label": "즉시 진행 모달·전송률 · 본인 PR #146", "url": "https://github.com/Goorm-Lucky7/Dart_FE/pull/146"},
+      {"label": "3D 전시 템플릿 · 본인 PR #127", "url": "https://github.com/Goorm-Lucky7/Dart_FE/pull/127"},
+      {"label": "반응형·전시 설명 모달 경로 · 본인 PR #100", "url": "https://github.com/Goorm-Lucky7/Dart_FE/pull/100"},
     ],
   },
   {
     slug: "search-performance",
+    group: "purple",
     name: "Search & Performance",
     category: "PURPLE · SEO / AEO / RENDERING",
     year: "2026",
@@ -415,6 +465,7 @@ export const projects: Project[] = [
   },
   {
     slug: "reading-lab",
+    group: "purple",
     name: "Reading Lab",
     category: "PURPLE · LEARNING EXPERIENCE",
     year: "2026",
@@ -466,6 +517,7 @@ export const projects: Project[] = [
   },
   {
     slug: "shared-systems",
+    group: "purple",
     name: "Shared Systems",
     category: "PURPLE · DESIGN SYSTEM / DATA",
     year: "2026",
@@ -525,6 +577,7 @@ export const projects: Project[] = [
   },
   {
     slug: "operations-platform",
+    group: "purple",
     name: "Operations Platform",
     category: "PURPLE · OPERATIONS / DATA",
     year: "2026",
@@ -588,6 +641,7 @@ export const projects: Project[] = [
   },
   {
     slug: "purple-english",
+    group: "purple",
     name: "Purple English",
     category: "PURPLE · LEGACY MIGRATION",
     year: "2026",
@@ -650,6 +704,7 @@ export const projects: Project[] = [
   },
   {
     slug: "android-webview",
+    group: "purple",
     name: "Beyond the WebView",
     category: "PURPLE · ANDROID / RESILIENCE",
     year: "2026",
@@ -702,10 +757,11 @@ export const projects: Project[] = [
   },
   {
     slug: "memolinx",
+    group: "independent",
     name: "MemoLinx",
     category: "PERSONAL · SOCIAL WEB APP",
     year: "2024",
-    period: "2024.03.08 — 2024.04.19",
+    period: "2024.03 — 2024.04",
     summary: "메모를 사람들과 연결하는 개인 프로젝트.",
     headline: "기획부터 데이터 구조까지 직접 다룬 작은 제품.",
     role: "기획·UI·데이터베이스·프론트엔드 개인 개발",
@@ -737,7 +793,7 @@ export const projects: Project[] = [
         label: "02 / INCIDENT",
         title: "서로를 다시 호출한 게시물과 댓글 조회",
         paragraphs: [
-          "배포 전 테스트에서 useEffect 의존성 설계로 요청이 반복되는 문제가 발생했습니다. 게시물 조회와 댓글 조회가 서로의 변화에 영향을 주는 구조를 분리하고, 댓글은 실시간 구독과 해제로 관리했습니다.",
+          "배포 전 테스트에서 useEffect 의존성 설계로 요청이 반복되어 1분 안에 Firestore 읽기 약 5만 건이 발생한 이력이 있습니다. 이는 사용자 규모가 아니라 잘못된 조회 흐름의 장애 기록입니다. 게시물 조회와 댓글 조회가 서로의 변화에 영향을 주는 구조를 분리하고, 댓글은 onSnapshot 실시간 구독과 해제로 관리했습니다.",
         ],
       },
       {
@@ -745,8 +801,16 @@ export const projects: Project[] = [
         title: "클릭한 결과를 바로 보여 주기",
         paragraphs: [
           "좋아요를 누른 뒤 새로고침해야 보이던 상태에 낙관적 UI를 도입했습니다. 사용자 반응을 먼저 화면에 표현하고 데이터와 맞춰 가는 방식을 학습했습니다.",
-          "현재 운영 상태나 사용 규모는 확인되지 않아 별도 수치로 표현하지 않습니다.",
+          "후속 커밋에서는 실시간 구독 결과에 좋아요 수뿐 아니라 현재 사용자의 선택 상태도 동기화하고, 누락된 배열은 빈 배열로 처리했습니다. 새로고침 후 선택 상태가 어긋나는 경계를 보완한 변경입니다.",
         ],
+      },
+      {
+        "label": "04 / USER FEEDBACK",
+        "title": "두 번의 베타 테스트를 제품 수정으로 연결",
+        "paragraphs": [
+          "당시 개인 프로젝트 기록에는 사용자 50명을 확보하고 두 차례 베타 테스트를 진행한 이력이 있습니다. 현재 활성 사용자 수가 아니라 2024년 테스트 당시의 기록입니다. Typeform으로 받은 의견을 GitHub 이슈 #12·#13에 나누어 개선 항목으로 관리했습니다.",
+          "폴더 생성 결과를 인식하기 어렵다는 의견에는 생성 UX를 보완하고, 다른 사용자의 글을 보고 싶다는 의견에는 타 사용자 마이페이지 조회를 추가했습니다. 업로드한 메모의 수정 제한, 빈 이미지의 기본 이미지 처리, 회원가입 후 내비게이션 상태도 후속 피드백에 따라 수정했습니다."
+        ]
       },
     ],
     evidence: [
@@ -755,9 +819,40 @@ export const projects: Project[] = [
         url: "https://github.com/j2an777/MemoLinx-App",
       },
       { label: "프로젝트 기록" },
+      {"label": "1차 베타 피드백과 처리 항목 · Issue #12", "url": "https://github.com/j2an777/MemoLinx-App/issues/12"},
+      {"label": "2차 베타 피드백과 처리 항목 · Issue #13", "url": "https://github.com/j2an777/MemoLinx-App/issues/13"},
+      {"label": "좋아요 실시간 상태 동기화 수정 · 커밋 522f3a8", "url": "https://github.com/j2an777/MemoLinx-App/commit/522f3a81fa"},
     ],
   },
 ];
+
+export const projectGroups = [
+  {
+    id: "purple",
+    name: "Purple Academy",
+    label: "재직 중 · 교육 플랫폼",
+    description: "브랜드 웹·퍼플잉글리시·학습앱·운영 도구와 공유 시스템은 모두 Purple Academy에서 진행한 업무입니다. 하나의 교육 플랫폼을 사용자 경험부터 운영·개발 기반까지 다룬 세부 사례로 나눴습니다.",
+  },
+  {
+    id: "investi",
+    name: "인베스티",
+    label: "2024.09 — 2025.09 · 실무 경험",
+    description: "인베스티 소속으로 HanwhaVision STEP 클라이언트 프로젝트와 Co-Play 플랫폼 개발에 참여했습니다. 고객사 서비스의 운영 안정화와 초기 제품의 프론트엔드 기반 구축을 구분해 소개합니다.",
+  },
+  {
+    id: "independent",
+    name: "개인·팀 프로젝트",
+    label: "2024 · 직접 만들고 검증한 제품",
+    description: "D’art는 FE 3명·BE 4명이 함께 만든 온라인 전시 서비스이고, MemoLinx는 기획부터 개발·베타 피드백까지 진행한 개인 프로젝트입니다.",
+  },
+] as const;
+
+export function getProjectGroups() {
+  return projectGroups.map((group) => ({
+    ...group,
+    projects: projects.filter((project) => project.group === group.id),
+  }));
+}
 
 export const expertise = [
   {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   experience,
+  getProjectGroups,
   expertise,
   profile,
   projects,
@@ -123,18 +124,33 @@ export function SelectedProjects({ all = false }: { all?: boolean }) {
       >
         포트폴리오 PDF 다운로드 <Arrow diagonal={false} />
       </a>
-      <div className="project-grid">
-        {(all ? projects : projects.slice(0, 4)).map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))}
-      </div>
+      {all ? getProjectGroups().map((group) => (
+        <section className="project-group" id={group.id} key={group.id} aria-labelledby={`group-${group.id}`}>
+          <header className="project-group-heading" data-reveal>
+            <p className="eyebrow">{group.label} / {group.projects.length} CASES</p>
+            <h2 id={`group-${group.id}`}>{group.name}<span className="accent">.</span></h2>
+            <p className="muted">{group.description}</p>
+          </header>
+          <div className="project-grid">
+            {group.projects.map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} />
+            ))}
+          </div>
+        </section>
+      )) : (
+        <div className="project-grid">
+          {projects.slice(0, 4).map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
+        </div>
+      )}
       {!all && (
         <div className="section-end">
           <p className="muted">
             학습앱부터 검색 최적화, 팀이 함께 쓰는 시스템까지.
           </p>
           <TextLink href="/projects">
-            View all {projects.length} projects
+            View all {projects.length} cases
           </TextLink>
         </div>
       )}
