@@ -5,8 +5,10 @@ import {
   expertise,
   profile,
   projects,
+  portfolioPdf,
   updates,
 } from "@/content/portfolio";
+import { withBasePath } from "@/lib/paths";
 import { ProjectCard } from "./project-card";
 import { Arrow, SectionHeading, Tags, TextLink } from "./ui";
 
@@ -114,6 +116,13 @@ export function SelectedProjects({ all = false }: { all?: boolean }) {
         title={all ? "Projects." : "Built with purpose."}
         description="어떤 문제였고, 왜 그렇게 만들었는지. 실제 제품에서의 선택과 기여를 담았습니다."
       />
+      <a
+        className="portfolio-download text-link"
+        href={withBasePath(portfolioPdf)}
+        download="하승진_프론트엔드_포트폴리오.pdf"
+      >
+        포트폴리오 PDF 다운로드 <Arrow diagonal={false} />
+      </a>
       <div className="project-grid">
         {(all ? projects : projects.slice(0, 4)).map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />

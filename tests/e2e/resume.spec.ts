@@ -28,7 +28,7 @@ for (const width of [320, 390, 768, 1440]) {
     await page
       .getByRole("link", { name: "하승진 이력서 PDF 다운로드", exact: true })
       .click();
-    expect((await download).suggestedFilename()).toBe(
+    expect((await download).suggestedFilename().normalize("NFC")).toBe(
       "하승진_프론트엔드_이력서.pdf",
     );
     await expect(page).toHaveURL("/resume");
