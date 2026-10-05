@@ -1582,3 +1582,9 @@ ul {
   margin-bottom: 32px;
   font-size: 13px;
 }
+
+.project-group + .project-group { margin-top: clamp(72px, 10vw, 140px); }
+.project-group-heading { margin: 32px 0 48px; max-width: 760px; }
+.project-group-heading h2 { font-size: clamp(32px, 5vw, 56px); letter-spacing: -.045em; margin: 12px 0 20px; }
+.project-affiliation { font-size: 13px; margin-bottom: 12px; color: var(--muted); }
+.case-affiliation { margin: 28px 0 16px; color: var(--muted); }

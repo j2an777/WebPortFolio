@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "@/content/portfolio";
+import { getProject, projects, projectGroups, getProjectGroups } from "@/content/portfolio";
 import { JsonLd } from "@/components/json-ld";
 import { Arrow, Tags, TextLink } from "@/components/ui";
 import { getSiteConfig, pageMetadata } from "@/lib/seo";
@@ -36,7 +36,8 @@ export default async function ProjectPage({
   const project = getProject((await params).slug);
   if (!project) notFound();
   const { siteUrl: origin } = getSiteConfig();
-  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const ordered = getProjectGroups().flatMap((group) => group.projects);
+  const next = ordered[(ordered.indexOf(project) + 1) % ordered.length];
   return (
     <>
       <JsonLd
@@ -81,8 +82,9 @@ export default async function ProjectPage({
       <article className="container">
         <header className="case-hero">
           <TextLink href="/projects" className="case-back">
-            All projects
+            All cases
           </TextLink>
+          <p className="case-affiliation">{projectGroups.find((group) => group.id === project.group)?.name} / {project.group === "investi" ? (project.slug === "hanwha-vision" ? "클라이언트 프로젝트" : "플랫폼 개발") : project.group === "purple" ? "교육 플랫폼 내 세부 사례" : (project.slug === "dart" ? "팀 프로젝트" : "개인 프로젝트")}</p>
           <p className="eyebrow">
             <span className="status-dot" />
             {project.category}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Project } from "@/content/portfolio";
+import { projectGroups, type Project } from "@/content/portfolio";
 import { Arrow } from "./ui";
 
 export function ProjectCard({
@@ -38,6 +38,7 @@ export function ProjectCard({
         )}
       </Link>
       <div className="project-caption">
+        <p className="project-affiliation">{projectGroups.find((group) => group.id === project.group)?.name}</p>
         <div className="project-meta mono">
           <span>
             {String(index + 1).padStart(2, "0")} / {project.category}
