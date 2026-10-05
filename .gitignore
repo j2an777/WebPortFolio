@@ -15,3 +15,5 @@ docs/portfolio/assets/
 
 /output/
 /public/resume/*.pdf
+
+/public/portfolio/*.pdf

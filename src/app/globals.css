@@ -1574,3 +1574,11 @@ ul {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.portfolio-download {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 13px;
+}

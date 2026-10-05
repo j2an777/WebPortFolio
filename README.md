@@ -11,7 +11,7 @@ pnpm dev
 
 개발 주소: http://localhost:3100
 
-`dev`, `build`, `build:pages`는 공통 이력서 데이터로 3페이지 PDF를 먼저 생성합니다. 생성 파일은 `public/resume/seungjin-ha-resume.pdf`와 `output/pdf/seungjin-ha-resume.pdf`이며 Git에는 포함하지 않습니다. Linux에서는 첫 실행 전에 `pnpm exec playwright install --with-deps chromium`으로 브라우저 시스템 의존성을 설치하세요. Pages CI에는 이 단계가 포함되어 있습니다.
+`dev`, `build`, `build:pages`는 공통 콘텐츠 데이터로 이력서와 포트폴리오 PDF를 먼저 생성합니다. 다운로드 파일은 `public/resume/seungjin-ha-resume.pdf`, `public/portfolio/seungjin-ha-portfolio.pdf`이고 검토용 사본은 `output/pdf/`에 생성되며 Git에는 포함하지 않습니다. Linux에서는 첫 실행 전에 `pnpm exec playwright install --with-deps chromium`으로 브라우저 시스템 의존성을 설치하세요. Pages CI에는 이 단계가 포함되어 있습니다.
 
 ```sh
 pnpm typecheck
@@ -43,7 +43,7 @@ SITE_INDEXABLE=true
 
 - 프로필·내비게이션·사례·경력: `src/content/portfolio.ts`
 - 웹/PDF 공통 이력서: `src/content/resume.ts`
-- PDF 템플릿·생성: `src/components/resume-print.tsx`, `scripts/generate-resume-pdf.tsx`
+- PDF 템플릿·생성: `src/components/resume-print.tsx`, `src/components/portfolio-print.tsx`, `scripts/generate-pdfs.tsx`
 - 화면과 공통 UI: `src/app`, `src/components`
 - 색·레이아웃·반응형: `src/app/globals.css`
 - 스크롤 모션: `src/hooks/use-scroll-motion.ts`
@@ -57,3 +57,9 @@ SITE_INDEXABLE=true
 ## GitHub Pages
 
 `main` 머지 후 GitHub Actions로 정적 배포합니다. 최초 Pages 설정, 원하는 도메인 연결, 로컬 빌드 방법은 [배포 안내](docs/portfolio/github-pages.md)를 참고하세요.
+
+## 포트폴리오 PDF 갱신
+
+홈과 Projects 페이지에서 포트폴리오 PDF를 다운로드합니다. `src/content/portfolio.ts`의 프로젝트 목록·본문·역할·기술·근거와 프로필·역량 데이터를 웹/PDF가 공유합니다. 별도의 PDF 콘텐츠 목록이나 프로젝트 개수 제한을 두지 않습니다.
+
+콘텐츠 수정 → `main` 머지 → 기존 Pages 워크플로의 빌드에서 두 PDF 생성 → 사이트와 함께 배포됩니다. 배포 전 콘텐츠 변경은 공개 다운로드에 반영되지 않습니다. 로컬에서 재생성하려면 `pnpm generate:pdf`, 개발·일반 빌드·Pages 빌드에는 `pnpm prepare:pdf`가 자동 포함됩니다. PDF는 A4 인쇄 레이아웃이며 본문 증가 시 자동으로 다음 페이지에 이어집니다. 사이트의 반응형·모션은 유지됩니다.

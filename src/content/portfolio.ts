@@ -840,3 +840,5 @@ export const updates = [
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
+
+export const portfolioPdf = "/portfolio/seungjin-ha-portfolio.pdf";
