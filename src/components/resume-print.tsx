@@ -36,7 +36,7 @@ export function ResumePrint({
           </div>
           <img
             className="print-profile"
-            src={`${assetRoot}/images/profile.jpg`}
+            src={`${assetRoot}${resume.portrait.replace(/\.webp$/, ".jpg")}`}
             alt="하승진"
           />
         </header>
@@ -47,18 +47,6 @@ export function ResumePrint({
           <a href={resume.profile.github}>GitHub ↗</a>
           <a href={resume.profile.blog}>Velog ↗</a>
           <span>UPDATED {resume.updatedAt}</span>
-        </div>
-        <div className="print-metrics">
-          {resume.strengths.map((item) => (
-            <a href={link(item.slug)} key={item.title}>
-              <strong>
-                {item.value}
-                <small>{item.unit}</small>
-              </strong>
-              <b>{item.title}</b>
-              <span>{item.detail}</span>
-            </a>
-          ))}
         </div>
         {heading("01", "Experience")}
         {resume.careers.map((item) => (

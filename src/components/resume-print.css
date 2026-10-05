@@ -115,47 +115,6 @@ li::before {
   color: #69655f;
   font-size: 7px;
 }
-.print-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 18px 0 20px;
-  border-block: 1px solid #d8d5ce;
-}
-.print-metrics > a {
-  padding: 13px 12px;
-  border-right: 1px solid #d8d5ce;
-}
-.print-metrics > a:first-child {
-  padding-left: 0;
-}
-.print-metrics > a:last-child {
-  border: 0;
-}
-.print-metrics strong {
-  display: block;
-  font-family: ResumeLatin, ResumeKR, sans-serif;
-  font-size: 30px;
-  line-height: 1.1;
-  font-weight: 500;
-}
-.print-metrics small {
-  font-size: 12px;
-  color: #b33315;
-  margin-left: 4px;
-}
-.print-metrics b {
-  display: block;
-  margin-top: 9px;
-  font-size: 9px;
-}
-.print-metrics span {
-  display: block;
-  font-size: 7.5px;
-  color: #69655f;
-  line-height: 1.7;
-  margin-top: 4px;
-  word-break: keep-all;
-}
 .print-heading {
   display: flex;
   align-items: baseline;

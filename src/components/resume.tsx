@@ -61,10 +61,10 @@ export function ResumeHome() {
         </div>
         <figure className="resume-portrait">
           <Image
-            src="/images/profile.webp"
+            src={resume.portrait}
             alt="하승진 프로필 사진"
-            width={480}
-            height={600}
+            width={100}
+            height={140}
             sizes="(max-width: 700px) 160px, 300px"
             preload
           />
@@ -74,27 +74,6 @@ export function ResumeHome() {
           </figcaption>
         </figure>
       </header>
-      <section className="resume-strengths" aria-label="대표 성과">
-        {resume.strengths.map((item) => (
-          <Link
-            key={item.title}
-            href={`/work/${item.slug}`}
-            data-transition
-            className="resume-strength"
-            data-reveal
-          >
-            <p className="resume-stat">
-              {item.value}
-              <span>{item.unit}</span>
-            </p>
-            <h2>{item.title}</h2>
-            <p>{item.detail}</p>
-            <span className="resume-strength-link">
-              사례와 근거 보기 <Arrow />
-            </span>
-          </Link>
-        ))}
-      </section>
       <div className="resume-body">
         <aside className="resume-index" aria-label="이력서 목차">
           <p className="mono">THE RESUME</p>

@@ -23,7 +23,7 @@ async function generateResume() {
   const imageDirectory = join(directory, "images");
   await mkdir(imageDirectory);
   for (const src of [
-    "/images/profile.webp",
+    resume.portrait,
     ...resume.projects.map((project) => project.image),
   ]) {
     const target = join(

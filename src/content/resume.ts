@@ -6,29 +6,7 @@ export const resume = {
   headline: "제품의 시작부터, 다음 개선까지.",
   introduction:
     "사용자에게는 좋은 경험을, 팀에게는 좋은 구조를. 교육 플랫폼과 글로벌 파트너 서비스에서 기능 구축, 운영 안정성, 공통 UI와 협업 기반을 함께 개선했습니다.",
-  strengths: [
-    {
-      value: "50",
-      unit: "개",
-      title: "중복 구현을 공통 구조로",
-      detail: "학생 상세 동일 구현 통합 · 의도된 차이 9개 보존",
-      slug: "shared-systems",
-    },
-    {
-      value: "~50",
-      unit: "%",
-      title: "대시보드 DB 왕복 감소",
-      detail: "20–21회 → 10–11회 · 응답 시간 개선율과 구분",
-      slug: "operations-platform",
-    },
-    {
-      value: "56",
-      unit: "편",
-      title: "새로 남긴 도메인 문서",
-      detail: "팀 문서 145편 중 신규 작성 · 2026.10.03 기록",
-      slug: "shared-systems",
-    },
-  ],
+  portrait: "/images/resume-profile.webp",
   careers: [
     {
       name: "Purple Academy",
