@@ -144,11 +144,15 @@ export function ResumePrint({
             <span>{item.date}</span>
           </div>
         ))}
+        {heading("06", "Certifications")}
+        {resume.certifications.map((item) => (
+          <div className="print-list-row" key={item.name}>
+            <p>{item.name}</p>
+            <span>{item.date}</span>
+          </div>
+        ))}
         <div className="print-contact">
-          {heading("06", "Contact")}
-          <h3>
-            다음 제품을, 함께 만들어갑니다<i>.</i>
-          </h3>
+          {heading("07", "Contact")}
           <a className="print-email" href={`mailto:${resume.profile.email}`}>
             {resume.profile.email} ↗
           </a>

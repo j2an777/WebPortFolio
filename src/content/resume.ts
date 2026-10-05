@@ -16,9 +16,11 @@ export const resume = {
       description:
         "브랜드·관리자·학습앱을 연결하며 제품 구축과 운영 품질 개선에 기여했습니다.",
       points: [
-        "입학 신청과 전형료 결제 3개 수단 연결, 신청 중 자녀 추가 동선 개선",
-        "서버 렌더링·검색 구조·접근성 정비, 메인 코드 분할과 요청 지연",
-        "공유 UI·디자인 토큰·Storybook, 운영 대시보드와 도메인 문서 개선",
+        "입학·결제: 회원가입·자녀 등록·입학 신청·마이페이지를 연결하고 일반결제·브랜드페이·무통장입금 3개 수단 구현. 신청 중 자녀 추가 동선 개선",
+        "검색·접근성: 커리큘럼·FAQ·커뮤니티 상세의 SSR로 프리렌더 HTML 본문 복구. JSON-LD·sitemap 정비와 이미지 대체 텍스트 누락 수정",
+        "초기 로딩: 메인 하단 9개 영역의 dynamic import와 스크롤 근접 마운트로 코드 로딩·API 요청 시점을 함께 분리",
+        "공통 UI: 표현 계층과 폼·API 어댑터를 분리해 공유 패키지·디자인 토큰·Storybook으로 이관. 공개 라우트 24개 대조 후 간격 회귀 2건 수정",
+        "배포 복구: 청크·동적 import 실패를 감지하고 새로고침 복구 구현. 세션 저장소의 재시도 시각으로 반복 새로고침 방지",
       ],
       slugs: ["purple-academy", "shared-systems", "operations-platform"],
     },
@@ -30,8 +32,12 @@ export const resume = {
       description:
         "Co-Play 플랫폼의 웹 클라이언트 개발을 주도하고, 고객사 한화비전 STEP 프로젝트에 참여했습니다.",
       points: [
-        "Co-Play: 모노레포·공통 컴포넌트·문서화와 웹 아키텍처 구축, 채팅 보조 개발",
-        "HanwhaVision STEP: 인증·세션 문제 해결, 다국어 설계 보조, PDF·폼 기능 개발",
+        "Co-Play — FE 1명으로 웹 아키텍처·기능 개발 주도. Turborepo·pnpm으로 UI·타입·API·유틸 공유 구조와 Storybook·개발 규칙 구축",
+        "Co-Play — OpenAPI 기반 요청·응답 타입 자동 생성과 공통 오류 안내 연결. API 계약을 화면마다 중복 정의하지 않도록 정리",
+        "Co-Play — 채팅 개발 보조: TanStack Virtual로 이전 기록 조회 시 렌더링 노드 제한. BlurHash로 이미지 로딩 중 시각적 공백 개선",
+        "HanwhaVision STEP — 토큰 재발급과 페이지 검증의 경합 추적. Mutex·쿠키 저장 Promise로 요청 순서를 제어하고 페이지 진입 검증과 API 경로 분리",
+        "HanwhaVision STEP — React Hook Form·Zod 공통 입력 계층과 한글·다국어 폰트 기반 약관·파트너 확인서·동의서 PDF 구현",
+        "HanwhaVision STEP — next-intl·언어팩 설계 보조. 배포 버전 확인과 BroadcastChannel로 오래 열린 탭·여러 탭의 상태 전환 처리",
       ],
       slugs: ["hanwha-vision", "co-play"],
     },
@@ -138,6 +144,10 @@ export const resume = {
       period: "2022.09 - 2023.12",
       detail: "수료",
     },
+  ],
+  certifications: [
+    { name: "정보처리기사", date: "2025.12" },
+    { name: "SQL 개발자 (SQLD)", date: "2025.12" },
   ],
   awards: [
     {

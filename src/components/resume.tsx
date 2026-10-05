@@ -11,6 +11,7 @@ const index = [
   ["skills", "Skills"],
   ["education", "Education"],
   ["awards", "Awards"],
+  ["certifications", "Certifications"],
 ] as const;
 
 export function ResumeHome() {
@@ -63,8 +64,8 @@ export function ResumeHome() {
           <Image
             src={resume.portrait}
             alt="하승진 프로필 사진"
-            width={100}
-            height={140}
+            width={640}
+            height={853}
             sizes="(max-width: 700px) 160px, 300px"
             preload
           />
@@ -210,6 +211,15 @@ export function ResumeHome() {
                   <strong>{item.result}</strong>
                   {item.name}
                 </p>
+                <p className="mono">{item.date}</p>
+              </div>
+            ))}
+          </section>
+          <section id="certifications" className="resume-section">
+            <ResumeHeading number="06" title="Certifications" />
+            {resume.certifications.map((item) => (
+              <div className="resume-compact" key={item.name}>
+                <p>{item.name}</p>
                 <p className="mono">{item.date}</p>
               </div>
             ))}
