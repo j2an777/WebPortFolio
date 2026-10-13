@@ -1,6 +1,6 @@
 # J2AN · 하승진 포트폴리오
 
-About Me 중심의 개인 포트폴리오. Next.js App Router, TypeScript, Tailwind CSS, GSAP으로 구현했습니다. 실제 프로필 사진과 11개 프로젝트 사례를 포함합니다. 메인 About Me(`/`)와 별도 이력서(`/resume`)를 제공하며, 상단에서 동일 테마의 PDF를 다운로드할 수 있습니다.
+About Me 중심의 개인 포트폴리오. Next.js App Router, TypeScript, Tailwind CSS, GSAP으로 구현했습니다. 실제 프로필 사진과 회사별로 묶은 11개 기여 사례를 포함합니다. 메인 About Me(`/`)와 별도 이력서(`/resume`)를 제공하며, 상단에서 동일 테마의 PDF를 다운로드할 수 있습니다.
 
 ## 실행
 
@@ -60,6 +60,6 @@ SITE_INDEXABLE=true
 
 ## 포트폴리오 PDF 갱신
 
-홈과 Projects 페이지에서 포트폴리오 PDF를 다운로드합니다. `src/content/portfolio.ts`의 프로젝트 목록·본문·역할·기술·근거와 프로필·역량 데이터를 웹/PDF가 공유합니다. 별도의 PDF 콘텐츠 목록이나 프로젝트 개수 제한을 두지 않습니다.
+홈과 Projects 페이지에서 포트폴리오 PDF를 다운로드합니다. `src/content/portfolio.ts`의 프로젝트 목록·본문·역할·기술·근거와 프로필·역량 데이터를 웹/PDF가 공유합니다. `getProjectGroups()`가 같은 사례 데이터를 Purple Academy·인베스티·개인/팀 프로젝트로 묶습니다. 별도의 PDF 콘텐츠 목록이나 프로젝트 개수 제한을 두지 않습니다.
 
 콘텐츠 수정 → `main` 머지 → 기존 Pages 워크플로의 빌드에서 두 PDF 생성 → 사이트와 함께 배포됩니다. 배포 전 콘텐츠 변경은 공개 다운로드에 반영되지 않습니다. 로컬에서 재생성하려면 `pnpm generate:pdf`, 개발·일반 빌드·Pages 빌드에는 `pnpm prepare:pdf`가 자동 포함됩니다. PDF는 A4 인쇄 레이아웃이며 본문 증가 시 자동으로 다음 페이지에 이어집니다. 사이트의 반응형·모션은 유지됩니다.

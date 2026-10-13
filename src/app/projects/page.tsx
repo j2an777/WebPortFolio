@@ -3,7 +3,7 @@ import { PageIntro } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Projects",
-  "실제 제품에서의 문제, 선택, 결과. 하승진의 대표 실무·개인 프로젝트 11개를 살펴보세요.",
+  "실제 제품에서의 문제, 선택, 결과. Purple Academy·인베스티·개인 및 팀 프로젝트의 기여 사례를 살펴보세요.",
   "/projects",
 );
 export default function Projects() {

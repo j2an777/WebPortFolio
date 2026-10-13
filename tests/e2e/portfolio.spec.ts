@@ -24,6 +24,10 @@ for (const width of [320, 390, 768, 1024, 1440]) {
       .click();
     await expect(page).toHaveURL("/projects");
     await expect(page.locator(".project-card")).toHaveCount(projects.length);
+    await expect(page.locator(".project-group")).toHaveCount(3);
+    await expect(page.locator("#purple .project-card")).toHaveCount(7);
+    await expect(page.locator("#investi .project-card")).toHaveCount(2);
+    await expect(page.locator("#independent .project-card")).toHaveCount(2);
     await expect(page.locator(".route-curtain")).toBeHidden();
     expect(
       await page.evaluate(
