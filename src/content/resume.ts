@@ -1,11 +1,12 @@
-import { profile, getProject } from "./portfolio";
+import { profile, getProject, expertise } from "./portfolio";
 
 export const resume = {
-  updatedAt: "2026-10-13",
+  updatedAt: "2026-10-19",
   profile,
   headline: "제품의 시작부터, 다음 개선까지.",
   introduction:
-    "사용자에게는 좋은 경험을, 팀에게는 좋은 구조를. 교육 플랫폼과 글로벌 파트너 서비스에서 기능 구축, 운영 안정성, 공통 UI와 협업 기반을 함께 개선했습니다.",
+    "교육 플랫폼과 글로벌 파트너 서비스에서 인증·결제의 실패 복구, 데이터 조회와 캐시, 웹·앱 연계를 개선했습니다. 운영자가 직접 관리할 수 있는 도구와 팀이 재사용할 기준을 만들고, 정보 노출 경로도 함께 점검합니다.",
+  summary: expertise,
   portrait: "/images/resume-profile.webp",
   careers: [
     {
@@ -14,7 +15,7 @@ export const resume = {
       kind: "개발 활동 기록",
       role: "Frontend Developer · 교육 플랫폼",
       description:
-        "브랜드·관리자·학습앱과 API를 연결하고, 조회 비용·중복 코드·운영 업무 흐름을 개선했습니다.",
+        "브랜드·관리자·학습앱과 API를 연결하며 인증·결제 복구, 조회 비용, 운영 도구와 정보 노출 경로를 개선했습니다.",
       points: [
         "대시보드: DB 왕복 20~21회 → 10~11회(47.6~50% 감소), 매출 조회 9회 → 2회. 실시간 집계 유지 · 코드 경로 비교",
         "공통화: 학생 상세 동일 구현 50개·10,401줄을 공통 모듈로 통합, 수정 지점 2곳 → 1곳. 정책 차이 9개는 어댑터로 보존",

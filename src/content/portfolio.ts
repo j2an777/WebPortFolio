@@ -9,9 +9,9 @@ export const profile = {
   instagram: "https://www.instagram.com/hs_j2an/",
   notion: "https://j2an.notion.site/J2AN-364a1d26afe648cd899b1415024fd78d",
   intro:
-    "서비스 품질과 협업 문화를 함께 만드는 프론트엔드 개발자 하승진입니다.",
+    "사용자 흐름과 운영을 함께 이해하고, 출시 이후의 문제까지 개선하는 프론트엔드 개발자 하승진입니다.",
   description:
-    "사용자에게는 좋은 경험을, 팀에게는 좋은 구조를. 교육 플랫폼, 글로벌 파트너 서비스, 개인 프로젝트에서 제품의 시작과 운영 개선을 함께 경험했습니다.",
+    "교육 플랫폼과 글로벌 파트너 서비스에서 인증·결제의 복구 흐름, 데이터 조회와 캐시, 웹·앱 연계를 개선했습니다. 반복 업무를 재사용 가능한 도구로 바꾸고, 개인정보와 인증 정보의 노출 경로를 함께 점검합니다.",
 };
 
 export const navigation = [
@@ -69,9 +69,9 @@ export const projects: Project[] = [
     "category": "EDUCATION · PRODUCT ENGINEERING",
     "year": "2026",
     "period": "2026.01 — 현재",
-    "summary": "DB 왕복 47.6~50% 감소, 학생 상세 10,401줄 공통화로 교육 플랫폼의 조회와 유지보수 비용 개선.",
-    "headline": "제품을 완성하고, 조회 비용과 중복 구현까지 줄입니다.",
-    "role": "브랜드·관리자·학습앱 개발 · 조회 최적화·공통화·운영 도구",
+    "summary": "신청·결제부터 운영 도구까지 연결하고, 실패 복구·조회 비용·정보 노출을 개선한 교육 플랫폼 개발.",
+    "headline": "신청과 결제를 연결하고, 운영에서 드러난 실패까지 다듬습니다.",
+    "role": "브랜드·관리자·학습앱 개발 · 인증·결제·조회 최적화·운영 도구",
     "team": "사내 제품 개발팀 협업",
     "image": "/images/purple-brand.webp",
     "imageAlt": "Purple Academy 브랜드 웹 메인 화면",
@@ -86,8 +86,8 @@ export const projects: Project[] = [
       "Storybook"
     ],
     "highlights": [
+      "결제 도입부터 0원·만료·승인 재확인·재시도 흐름 개선",
       "대시보드 DB 왕복 20~21회 → 10~11회 · 코드 경로 비교",
-      "학생 상세 동일 구현 50개·10,401줄 공통화",
       "CS 답변 10,953건 분석 · 템플릿 28종을 3개 화면에 연동"
     ],
     "sections": [
@@ -129,10 +129,11 @@ export const projects: Project[] = [
       },
       {
         "label": "04 / PRODUCT FLOW",
-        "title": "가입에서 신청·결제 결과까지 이어지는 동선",
+        "title": "결제 성공뿐 아니라, 기다리고 다시 시도하는 흐름까지",
         "paragraphs": [
           "학부모가 가입하고 자녀를 등록한 뒤 입학을 신청하고 전형료를 결제하는 흐름을 구축했습니다. 일반결제·브랜드페이·무통장입금 3개 수단을 주문 생성, 결과 화면, 마이페이지와 연결했습니다. 신청 도중 자녀를 추가하고 바로 선택할 수 있게 해 등록 화면으로 나갔다 돌아오는 동선을 개선했습니다.",
-          "로그인·자녀 등록·모집 상태에 따른 진입 판단을 공통 로직으로 모았습니다. 브랜드와 퍼플잉글리시의 자체 토스 SDK 로더는 공식 SDK로 교체해 중복 로더 98줄을 제거하고, 결제수단 타입 불일치 1건을 컴파일 단계에서 발견해 처리했습니다."
+          "로그인·자녀 등록·모집 상태에 따른 진입 판단을 공통 로직으로 모았습니다. 쿠폰으로 0원이 된 주문은 PG 승인과 분리하고, 만료 주문은 재사용 가능한 조건을 검사한 뒤 복구하도록 개선했습니다.",
+          "퍼플잉글리시 결제 이관에서는 동료가 구현한 서버 상태 전이 위에 실패 후 재시도, 승인 확인 중의 자동 재조회, 연장 결제 중복 확정 방지를 보강했습니다. 승인 여부가 불명확한 상태를 곧바로 실패로 처리하지 않고 사용자가 결과를 확인할 경로를 마련했습니다. 결제 성공률의 전후 변화는 측정하지 않았습니다."
         ]
       },
       {
@@ -159,7 +160,31 @@ export const projects: Project[] = [
         ]
       },
       {
-        "label": "08 / CONTENT FRESHNESS",
+        "label": "08 / AUTH & PRIVACY",
+        "title": "세션 복구와 정보 노출을 서로 다른 문제로 다루기",
+        "paragraphs": [
+          "브랜드 웹·어드민의 토큰 저장과 전달을 HttpOnly JWT 쿠키와 서버 중계(BFF)로 옮겨 브라우저 JavaScript가 토큰을 직접 읽는 경로를 줄였습니다. 회전형 토큰의 동시 갱신은 요청 공유와 DB 조건부 갱신으로 다루고, 개발·운영 환경의 쿠키 충돌과 어드민 Origin 검증도 정비했습니다.",
+          "XSS 대응을 정리하며 살펴본 토큰 탈취 위험을 실제 인증 구조와 연결했습니다. HttpOnly와 BFF는 XSS 자체를 막는 장치가 아니므로, 스크립트 실행 방어와 토큰 접근 제한을 구분합니다. GA4 점검에서는 URL에 포함된 로그인 아이디가 분석 도구로 전송되는 경로를 찾아 주소 구조를 변경했습니다."
+        ]
+      },
+      {
+        "label": "09 / REUSABLE OPERATIONS",
+        "title": "반복되는 변경을 운영 화면과 팀의 도구로",
+        "paragraphs": [
+          "배너·팝업·알림톡 템플릿을 코드 수정과 배포 없이 관리할 수 있는 운영 화면으로 옮겼습니다. 외부 알림톡 시스템과 연동할 때는 검수 상태와 발송 상태를 분리해 재검수 중인 기존 승인본과 아직 발송할 수 없는 신규 템플릿을 구분했습니다.",
+          "팀 공유 AI 스킬에는 자동 업데이트 훅과 문서 드리프트 검사 CI를 추가했습니다. 규칙은 commitlint와 실제 스키마 등 원천과 대조하고, 변경 내용이 팀원에게 전달되는 경로까지 정비했습니다. 학생 상세 공통화와 함께, 반복 수정의 기준을 팀이 재사용할 수 있는 형태로 남긴 사례입니다."
+        ]
+      },
+      {
+        "label": "10 / WEB & APP",
+        "title": "웹과 앱이 따로 배포돼도 이어지는 사용자 흐름",
+        "paragraphs": [
+          "React Native 웹뷰 앱과 브랜드 웹 사이의 메시지 브리지를 확장해 결제는 외부 브라우저로 연결하고, 웹 모달이 열렸을 때 앱의 뒤로가기가 먼저 모달을 닫도록 맞췄습니다. Android에서는 Kotlin MediaStore 모듈로 다운로드 파일을 공용 폴더에 저장하고, 렌더러 종료 시 웹뷰를 재생성하도록 개선했습니다.",
+          "모르는 메시지는 무시하고 새 네이티브 기능이 없는 버전은 기존 경로로 폴백하도록 설계했습니다. iOS·Android 빌드·서명·스토어 업로드 절차도 가이드로 정리했습니다. 빌드·업로드와 심사 제출·공개 출시는 구분하며, ASO 변경 이후 설치 성과는 아직 측정하지 않았습니다."
+        ]
+      },
+      {
+        "label": "11 / CONTENT FRESHNESS",
         "title": "게시물 수정과 비공개 전환을 다음 조회에 반영",
         "paragraphs": [
           "관리자에서 게시물을 저장·삭제하거나 게시 여부를 바꾸면 공개 목록·상세·sitemap의 캐시 태그를 함께 무효화하도록 연결했습니다. 목록 60초·상세 5분·sitemap 1시간의 캐시 재검증 간격을 기다리는 대신, 무효화 성공 후 다음 요청부터 갱신하도록 바꿨습니다.",
@@ -168,6 +193,13 @@ export const projects: Project[] = [
       }
     ],
     "evidence": [
+      { label: "인증 구조 개편 · 토큰 접근 경계와 세션 복구", url: "https://velog.io/@j2an/auth-security-journey" },
+      { label: "결제 도입·실패 후 재시도·승인 재확인", url: "https://velog.io/@j2an/tosspayments-nine-month-journey" },
+      { label: "XSS 공격 대응 프론트엔드 가이드", url: "https://velog.io/@j2an/XSS-공격-대응-프론트엔드-가이드" },
+      { label: "GA4 · URL을 통한 개인정보 전송 경로 개선", url: "https://velog.io/@j2an/ga4-privacy-measurement-journey" },
+      { label: "운영 자립화 · 배너·팝업·알림톡 관리", url: "https://velog.io/@j2an/operations-self-service-journey" },
+      { label: "공유 AI 스킬 · 자동 갱신과 드리프트 검사", url: "https://velog.io/@j2an/shared-ai-skills-operations-journey" },
+      { label: "웹뷰 앱 · 브리지·다운로드·복구", url: "https://velog.io/@j2an/webview-app-eight-month-journey" },
       pr(8437, "상단 DB 왕복 47.6~50% 감소"),
       pr(8974, "학부모 요약 집계 · 핵심 쿼리 767ms"),
       pr(9226, "학생 상세 50개·10,401줄 공통화"),
@@ -878,24 +910,38 @@ export function getProjectGroups() {
 export const expertise = [
   {
     number: "01",
-    name: "Product Engineering",
-    title: "사용자의 다음 행동까지 설계합니다.",
-    body: "가입·결제·학습처럼 이어지는 흐름을 만들고, 로딩·실패·빈 상태까지 제품의 일부로 다룹니다.",
-    tags: ["React", "Next.js", "TypeScript", "React Query"],
+    name: "Recovery & Reliability",
+    title: "인증·결제의 실패 경로를 추적하고 복구 흐름을 만듭니다.",
+    body: "토큰 갱신 경쟁과 결제 재시도·만료·승인 확인 중 상태를 다뤘습니다. 요청이 실패한 경우와 결과를 아직 모르는 경우를 구분하고, 사용자가 결과를 확인하거나 다시 시도할 경로를 연결합니다.",
+    tags: ["Next.js", "BFF", "TossPayments", "Session"],
   },
   {
     number: "02",
-    name: "Systems & Collaboration",
-    title: "팀이 같은 규칙으로 개발하게 합니다.",
-    body: "디자인 토큰, 공통 UI, API 계약, 도메인 문서를 연결해 다음 개발자가 이어갈 수 있는 기반을 남깁니다.",
-    tags: ["Design System", "Storybook", "Turborepo", "OpenAPI"],
+    name: "Data & Cache",
+    title: "중복 조회를 줄이고, 데이터 성격에 맞는 캐시 정책을 설계합니다.",
+    body: "반복 집계를 통합해 대시보드 DB 왕복을 20~21회에서 10~11회로 줄였습니다(코드 경로 비교). 공개 콘텐츠는 ISR과 저장 시 무효화를 연결하고, 개인화 데이터는 사용자별로 분리하며 결제 화면은 캐시하지 않도록 정비했습니다.",
+    tags: ["React Query", "MySQL", "SSR / ISR", "Cache Invalidation"],
   },
   {
     number: "03",
-    name: "Performance & Craft",
-    title: "빠르고, 읽히고, 쓰기 편하게.",
-    body: "서버 렌더링과 SEO·AEO, 이미지·대량 목록 최적화, 접근성과 모션을 함께 살펴봅니다.",
-    tags: ["SSR / SSG", "SEO / AEO", "GSAP", "Accessibility"],
+    name: "Reusable Tools",
+    title: "반복되는 개발·운영 작업을 직접 관리하고 재사용할 수 있는 도구로 바꿉니다.",
+    body: "배너·팝업·알림톡과 CS 템플릿을 운영자가 배포 없이 관리하도록 만들었습니다. 공통 모듈과 도메인 문서를 정리하고, 팀 공유 AI 스킬에 자동 갱신과 드리프트 검사를 더해 같은 기준을 재사용할 수 있게 했습니다.",
+    tags: ["Operations", "Shared Modules", "Storybook", "AI Workflow"],
+  },
+  {
+    number: "04",
+    name: "Web & Native",
+    title: "웹과 앱의 경계를 넘어 사용자 흐름을 연결합니다.",
+    body: "React Native 브리지로 다운로드·모달·뒤로가기·외부 결제를 연결하고, Kotlin MediaStore 모듈과 웹뷰 복구 흐름을 구현했습니다. 구버전 앱의 폴백을 두고 iOS·Android 빌드·스토어 업로드 절차까지 문서화했습니다.",
+    tags: ["React Native", "Kotlin", "WebView", "Release"],
+  },
+  {
+    number: "05",
+    name: "Security & Privacy",
+    title: "개인정보와 인증 정보의 노출 경로를 찾아 구조적으로 줄입니다.",
+    body: "XSS 대응에서 다룬 토큰 탈취 위험을 실제 서비스의 HttpOnly 쿠키·BFF 전환과 연결했습니다. 어드민 Origin 검증을 정비하고, GA4 점검에서 찾은 로그인 아이디의 외부 전송 경로는 URL 구조를 변경해 제거했습니다.",
+    tags: ["XSS", "HttpOnly", "Origin Validation", "Privacy"],
   },
 ];
 

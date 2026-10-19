@@ -165,18 +165,22 @@ li::before {
   word-break: keep-all;
 }
 .print-career li {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.55;
 }
 .print-skills {
   display: grid;
-  gap: 9px;
+  gap: 2px;
 }
+.print-skills-heading { font-size: 12px; margin: 7px 0 3px; }
+.print-summary { margin-top: 14px; }
+.print-summary .print-subheading { margin: 0 0 5px; }
+.print-summary li { font-size: 10px; line-height: 1.5; margin-top: 3px; }
 .print-skills > div {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 15px;
-  font-size: 11px;
+  font-size: 9px;
 }
 .print-skills b {
   font-family: ResumeLatin, sans-serif;
