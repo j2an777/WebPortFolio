@@ -6,6 +6,7 @@ import { withBasePath } from "@/lib/paths";
 import { Arrow, Tags, TextLink } from "./ui";
 
 const index = [
+  ["summary", "Summary"],
   ["experience", "Experience"],
   ["projects", "Selected Projects"],
   ["skills", "Skills"],
@@ -93,9 +94,18 @@ export function ResumeHome() {
           </a>
         </aside>
         <div className="resume-content">
+          <section id="summary" className="resume-section">
+            <ResumeHeading number="01" title="Summary" description="실제 서비스에서 문제를 해결하며 쌓은 다섯 가지 강점입니다." />
+            {resume.summary.map((item) => (
+              <div key={item.number} className="resume-career">
+                <h3>{item.title}</h3>
+                <p className="resume-entry-description">{item.body}</p>
+              </div>
+            ))}
+          </section>
           <section id="experience" className="resume-section">
             <ResumeHeading
-              number="01"
+              number="02"
               title="Experience"
               description="소속과 참여 프로젝트를 구분한 경력입니다."
             />
@@ -127,7 +137,7 @@ export function ResumeHome() {
           </section>
           <section id="projects" className="resume-section">
             <ResumeHeading
-              number="02"
+              number="03"
               title="Selected Projects"
               description="기술 선택보다 먼저, 해결해야 할 문제를 봅니다."
             />
@@ -171,7 +181,7 @@ export function ResumeHome() {
           </section>
           <section id="skills" className="resume-section">
             <ResumeHeading
-              number="03"
+              number="04"
               title="Skills"
               description="실제 프로젝트에서 사용하고 개선한 기술입니다."
             />
@@ -183,7 +193,7 @@ export function ResumeHome() {
             ))}
           </section>
           <section id="education" className="resume-section">
-            <ResumeHeading number="04" title="Education" />
+            <ResumeHeading number="05" title="Education" />
             <div className="resume-school" data-reveal>
               <div className="resume-entry-heading">
                 <h3>{resume.education.name}</h3>
@@ -204,7 +214,7 @@ export function ResumeHome() {
             ))}
           </section>
           <section id="awards" className="resume-section">
-            <ResumeHeading number="05" title="Awards" />
+            <ResumeHeading number="06" title="Awards" />
             {resume.awards.map((item) => (
               <div className="resume-compact resume-award" key={item.name}>
                 <p>
@@ -216,7 +226,7 @@ export function ResumeHome() {
             ))}
           </section>
           <section id="certifications" className="resume-section">
-            <ResumeHeading number="06" title="Certifications" />
+            <ResumeHeading number="07" title="Certifications" />
             {resume.certifications.map((item) => (
               <div className="resume-compact" key={item.name}>
                 <p>{item.name}</p>

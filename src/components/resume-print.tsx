@@ -48,6 +48,12 @@ export function ResumePrint({
           <a href={resume.profile.blog}>Velog ↗</a>
           <span>UPDATED {resume.updatedAt}</span>
         </div>
+        <div className="print-summary">
+          <h2 className="print-subheading">Summary</h2>
+          <ul>
+            {resume.summary.map((item) => <li key={item.number}>{item.title}</li>)}
+          </ul>
+        </div>
         {heading("01", "Experience")}
         {resume.careers.map((item) => (
           <div className="print-career" key={item.name}>
@@ -65,7 +71,7 @@ export function ResumePrint({
             </ul>
           </div>
         ))}
-        {heading("02", "Skills")}
+        <h2 className="print-skills-heading">Skills</h2>
         <div className="print-skills">
           {resume.skills.map((group) => (
             <div key={group.title}>
