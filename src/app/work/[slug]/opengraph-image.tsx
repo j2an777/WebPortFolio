@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getProject, projects } from "@/content/portfolio";
+import { getProject, projects, projectAliases } from "@/content/portfolio";
 export const alt = "J2AN · Project case study";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -58,4 +58,6 @@ export default async function Image({
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
-export function generateStaticParams() { return projects.map(({ slug }) => ({ slug })); }
+export function generateStaticParams() {
+  return [...projects.map(({ slug }) => slug), ...Object.keys(projectAliases)].map((slug) => ({ slug }));
+}

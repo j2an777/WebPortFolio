@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects, projectGroups, getProjectGroups } from "@/content/portfolio";
+import { getProject, projects, projectAliases, projectGroups, getProjectGroups } from "@/content/portfolio";
 import { JsonLd } from "@/components/json-ld";
 import { Arrow, Tags, TextLink } from "@/components/ui";
 import { getSiteConfig, pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return projects.map(({ slug }) => ({ slug }));
+  return [...projects.map(({ slug }) => slug), ...Object.keys(projectAliases)].map((slug) => ({ slug }));
 }
 export async function generateMetadata({
   params,
