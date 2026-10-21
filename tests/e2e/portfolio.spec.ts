@@ -2,6 +2,20 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { projects } from "../../src/content/portfolio";
 
+test("Purple domains describe ReadingLab in the learning app and preserve old case links", async ({ page }) => {
+  await page.goto("/projects");
+  const purple = page.locator("#purple");
+  for (const name of ["PurpleAcademyWeb", "퍼플아카데미 학습앱", "Admin", "PurpleEnglish", "PurpleAcademyApp"]) {
+    await expect(purple.getByRole("heading", { name, exact: true })).toBeVisible();
+  }
+  await page.goto("/work/reading-lab");
+  await expect(page.getByText(/ReadingLab은 독립 서비스가 아니라 퍼플아카데미 학습앱/)).toBeVisible();
+  for (const [slug, name] of [["search-performance", "PurpleAcademyWeb."], ["shared-systems", "Admin."]]) {
+    await page.goto(`/work/${slug}`);
+    await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+  }
+});
+
 for (const width of [320, 390, 768, 1024, 1440]) {
   test(`responsive navigation and all project cards at ${width}px`, async ({
     page,
@@ -25,7 +39,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     await expect(page).toHaveURL("/projects");
     await expect(page.locator(".project-card")).toHaveCount(projects.length);
     await expect(page.locator(".project-group")).toHaveCount(3);
-    await expect(page.locator("#purple .project-card")).toHaveCount(7);
+    await expect(page.locator("#purple .project-card")).toHaveCount(5);
     await expect(page.locator("#investi .project-card")).toHaveCount(2);
     await expect(page.locator("#independent .project-card")).toHaveCount(2);
     await expect(page.locator(".route-curtain")).toBeHidden();
@@ -35,12 +49,12 @@ for (const width of [320, 390, 768, 1024, 1440]) {
       ),
     ).toBeTruthy();
     await page
-      .getByRole("link", { name: /Purple Academy/ })
+      .getByRole("link", { name: /PurpleAcademyWeb/ })
       .first()
       .click();
     await expect(page).toHaveURL("/work/purple-academy");
     await expect(
-      page.getByRole("heading", { name: "Purple Academy.", exact: true }),
+      page.getByRole("heading", { name: "PurpleAcademyWeb.", exact: true }),
     ).toBeVisible();
     await expect(page.locator(".route-curtain")).toBeHidden();
     expect(
@@ -133,7 +147,7 @@ test("all direct case routes, 404, metadata and discovery endpoints are valid", 
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).not.toContain("<url>");
   expect(await (await request.get("/llms.txt")).text()).toContain(
-    "Beyond the WebView",
+    "PurpleAcademyApp",
   );
   const og = await request.get("/opengraph-image");
   expect(og.status()).toBe(200);

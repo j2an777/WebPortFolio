@@ -84,7 +84,6 @@ li::before {
   object-fit: cover;
   object-position: center 30%;
   border: 6px solid #ebe7df;
-  transform: rotate(2deg);
 }
 .print-name {
   font-family: ResumeLatin, sans-serif;
@@ -209,18 +208,27 @@ li::before {
   color: #b33315;
 }
 .print-project {
-  display: grid;
-  grid-template-columns: 39mm 1fr;
-  gap: 7mm;
-  padding: 19px 0;
+  position: relative;
+  padding: 12px 0;
   border-bottom: 1px dashed #d8d5ce;
 }
 .print-project img {
-  width: 39mm;
-  height: 27mm;
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: 28mm;
+  height: 19mm;
   object-fit: contain;
   background: #ebe7df;
   padding: 8px;
+}
+.print-project .print-eyebrow,
+.print-project h3,
+.print-project .print-role {
+  margin-right: 33mm;
+}
+.print-project ul {
+  margin-top: 14px;
 }
 .print-project .print-eyebrow {
   font-size: 7px;
@@ -232,7 +240,8 @@ li::before {
   margin-top: 3px;
 }
 .print-project li {
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1.6;
 }
 .print-stack {
   color: #69655f;

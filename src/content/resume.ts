@@ -1,7 +1,7 @@
 import { profile, getProject, expertise } from "./portfolio";
 
 export const resume = {
-  updatedAt: "2026-10-19",
+  updatedAt: "2026-10-21",
   profile,
   headline: "제품의 시작부터, 다음 개선까지.",
   introduction:
@@ -23,7 +23,7 @@ export const resume = {
         "요청 비용: 세션 요청 공유·부모 데이터 전달로 마이페이지 4개 화면의 인증 조회 3회 → 1회(66.7% 감소) · 로컬 모의 API, 각 3회 확인",
         "콘텐츠 갱신: 목록 60초·상세 5분·sitemap 1시간의 캐시 대기를 다음 요청 갱신으로 전환. 저장 시 태그 무효화 · ISR 캐시 유지",
       ],
-      slugs: ["purple-academy", "shared-systems", "operations-platform"],
+      slugs: ["purple-academy", "reading-lab", "operations-platform", "purple-english", "android-webview"],
     },
     {
       name: "(주) 인베스티",
@@ -47,37 +47,45 @@ export const resume = {
     {
       slug: "purple-academy",
       points: [
-        "대시보드 DB 왕복 47.6~50% 감소 · 코드 경로 비교",
-        "학생 상세 동일 구현 50개·10,401줄 공통화",
-        "CS 답변 10,953건 분석 · 템플릿 28종을 3개 화면에 연동",
+        "브랜드 웹: 3개 결제 수단과 신청·자녀 등록 연결, 0원·만료 주문·재시도 보강. 학습앱: ReadingLab 독해·어휘 퀴즈와 관리자 제작·검수 연결",
+        "Admin: 중복 집계 통합·Promise 공유로 DB 왕복 20~21회 → 10~11회(코드 경로 비교). 학생 상세 동일 구현 50개 공통화·정책 차이 9개 보존",
+        "Admin: CS 답변 10,953건에서 템플릿 28종 설계·3개 화면 연동. PurpleEnglish: 브랜드·학습앱 이관, 자녀별 조회 분리·인증 조회 3회 → 1회(로컬 검증)",
+        "PurpleAcademyApp: Android MediaStore 공용 폴더 저장, 웹뷰 종료 후 복구·재시도와 반응형 스플래시 개선. 웹·앱 사이 학습 흐름 연결",
       ],
     },
     {
       slug: "hanwha-vision",
       points: [
-        "재발급 요청 동기화와 페이지 진입 검증을 분리해 인증 흐름 개선",
-        "next-intl·시트 기반 언어팩 설계 보조",
-        "정형 PDF 발급과 React Hook Form·Zod 공통 입력 계층 개발",
+        "토큰 저장 전 페이지 검증이 실행되는 인증 경합 추적. Mutex·쿠키 저장 Promise로 순서를 제어하고 페이지 진입과 API 검증 경로 분리",
+        "React Hook Form·Zod 기반 공통 입력 계층과 한글·다국어 폰트를 포함한 약관·파트너 확인서·동의서 PDF 발급 구현",
+        "Google Authenticator OTP 로그인 구현. next-intl·시트 기반 번역을 언어별 JSON과 locale 경로로 연결하는 언어팩 설계 보조",
+        "오래 열린 탭의 배포 버전 불일치 대응. 포커스 복귀 시 서버 버전을 캐시 없이 확인하고 BroadcastChannel로 여러 탭의 상태 전환 연결",
       ],
     },
     {
       slug: "co-play",
       points: [
-        "프론트엔드 아키텍처·Turbo 모노레포·디자인 시스템 구축 주도",
-        "OpenAPI 타입 생성과 공통 오류 처리·사용자 안내 연결",
-        "이미지 BlurHash와 역방향 채팅 가상화 적용·채팅 보조 개발",
+        "FE 1명으로 웹 아키텍처·기능 개발 주도. Turborepo·pnpm으로 UI·타입·API·유틸을 공유하고 공통 컴포넌트·Storybook·개발 규칙 구축",
+        "OpenAPI에서 요청·응답 타입을 자동 생성해 공통 패키지로 제공. API·인증 오류를 상태 코드·메시지 계약에 따라 사용자 안내로 연결",
+        "서버 prefetchQuery·HydrationBoundary로 초기 데이터를 클라이언트 캐시에 전달. 이미지 로딩 전에는 BlurHash로 시각적 공백 보완",
+        "채팅 개발 보조: TanStack Virtual로 누적 DOM 노드를 제한하고 상단 Skeleton에서 이전 기록 조회. scrollToIndex로 읽던 위치 유지",
       ],
     },
     {
       slug: "dart",
       points: [
-        "전시 이미지 업로드 10초 → 6초 · 당시 문서 기준",
-        "이미지 압축·업로드·서버 처리 진행 상태를 연결",
-        "토큰 재발급 요청 큐와 3D 전시 템플릿 개발",
+        "다량의 작품 이미지 업로드에 browser-image-compression 적용. 전시 생성 요청 평균 10초 → 6초 · 당시 프로젝트 문서 기준",
+        "압축 시작·Axios onUploadProgress·SSE를 연결해 전송과 서버 처리 단계를 진행 모달로 표시. 요청 직후부터 처리 상태 안내",
+        "동시 401 응답의 반복 재발급 문제를 팀 코드 리뷰에서 논의. 첫 재발급 완료까지 후속 요청을 큐에 보관하고 새 토큰으로 재개",
+        "회전·그리드·슬라이드·스크롤 전시와 react-three-fiber 기반 3D 갤러리 구현. 작품 선택·카메라 이동·상세 모달 경로와 반응형 화면 연결",
       ],
     },
   ].map(({ slug, points }) => ({
     ...getProject(slug)!,
+    ...(slug === "purple-academy" ? {
+      name: "Purple Academy",
+      role: "브랜드 웹·학습앱·Admin·PurpleEnglish·PurpleAcademyApp 개발",
+    } : {}),
     period: (
       {
         "purple-academy": "2026.01 - 현재",
